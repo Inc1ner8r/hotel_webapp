@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .full-page {
   height: 100vh;
 }
@@ -31,19 +38,20 @@
   border: 1px solid white;
 }
 
+.nav .nav-menu div:hover {
+  cursor: pointer;
+}
+
 .order {
-  border: 1px solid red;
   background-color: #999999;
-  margin: 20px;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 100px);
   padding: 20px;
 }
 
 .recieve {
-  border: 1px solid red;
+  display: none;
   background-color: #999999;
-  margin: 20px;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 100px);
   padding: 20px;
 }
 /*# sourceMappingURL=styles.css.map */
