@@ -1,0 +1,49 @@
+.full-page {
+  height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav {
+  height: 100px;
+  background-color: black;
+  color: white;
+}
+
+.nav .nav-menu {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav .nav-menu div {
+  padding: 15px;
+  border: 1px solid white;
+}
+
+.order {
+  border: 1px solid red;
+  background-color: #999999;
+  margin: 20px;
+  height: calc(100vh - 180px);
+  padding: 20px;
+}
+
+.recieve {
+  border: 1px solid red;
+  background-color: #999999;
+  margin: 20px;
+  height: calc(100vh - 180px);
+  padding: 20px;
+}
+/*# sourceMappingURL=styles.css.map */
