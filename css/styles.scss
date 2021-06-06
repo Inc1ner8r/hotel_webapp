@@ -1,0 +1,38 @@
+.full-page{
+    height: 100vh;
+}
+.hidden{
+    display: none;
+}
+.nav{
+    height: 100px;
+    background-color: black;
+    color: white;
+    
+    .nav-menu{
+        height: 100%;
+        display: flex;
+        gap: 5rem;
+        justify-content: center;
+        align-items: center;
+        
+        div{
+            padding: 15px;
+            border: 1px solid white;
+        }
+    }
+}
+.order{
+    border: 1px solid red;
+    background-color: rgb(153, 153, 153);
+    margin: 20px;
+    height: calc(100vh - 180px);
+    padding: 20px;
+}
+.recieve{
+    border: 1px solid red;
+    background-color: rgb(153, 153, 153);
+    margin: 20px;
+    height: calc(100vh - 180px);
+    padding: 20px;
+}
