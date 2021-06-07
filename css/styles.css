@@ -43,14 +43,12 @@
 }
 
 .order {
-  background-color: #999999;
   height: calc(100vh - 100px);
   padding: 20px;
 }
 
 .recieve {
   display: none;
-  background-color: #999999;
   height: calc(100vh - 100px);
   padding: 20px;
 }
