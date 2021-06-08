@@ -1,7 +1,8 @@
 const orderPage = document.getElementById("orderpage")
 const recievePage = document.getElementById("recievepage")
-const inputArea = document.getElementById("addOrder")
-const submitButton = document.getElementById("submit")
+const addOrder = document.querySelector(".addOrder")
+const submitButton = document.querySelector(".submitOrder")
+const orderedList = document.querySelector(".orderedList")
 var outputText = document.getElementsByClassName("recieve")
 
 
@@ -13,23 +14,29 @@ function orderView() {
     orderPage.style.display = "block"
     recievePage.style.display = "none"
 }
+submitButton.addEventListener('click', addItem);
 
-function eventListeners() {
-    //Form Submission
-    document.querySelector('#form').addEventListener('submit', newTask);
+function addItem(e) {
+    console.log("work")
+    //make order div
+    const orderDiv = document.createElement("div")
+    orderDiv.classList.add("orderItem")
+    //order list
+    const newOrder = document.createElement("li")
+    newOrder.innerText = "hey"
+    newOrder.classList.add("newOrderItem")
+    orderDiv.appendChild(newOrder)
+    //button
+    const orderAccept = document.createElement('button')
+    orderAccept.innerText = 'accept order'
+    orderDiv.appendChild(orderAccept)
+    orderedList.appendChild(orderDiv)
 
-    //Remove tasks from TaskList
-    taskList.addEventListener('click', completeTask);
-
-    //Remove tasks from TaskList
-    taskList.addEventListener('click', removeTask);
-
-    //Document
-    document.addEventListener('DOMContentLoaded', localStorageOnLoad);
 }
 
 
-submitButton.addEventListener("click", submitClick)
+
+
 
 function submitClick(e) {
     var t = document.getElementById("recievepage")
