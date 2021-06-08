@@ -11,28 +11,34 @@
 </head>
 
 <body>
-    <div class="full-page">
-        <div class="nav">
-            <div class="nav-menu">
-                <div id="order" onclick="orderView()">order</div>
-                <div id="recieve" onclick="recieveView()">recieve</div>
-            </div>
+    <!-------------------------- nav -------------------------->
+    <div class="nav">
+        <div class="nav-menu">
+            <div id="order" onclick="orderView()">order</div>
+            <div id="recieve" onclick="recieveView()">recieve</div>
         </div>
-        <div class="order" id="orderpage">
-            <div class="order-menu">
-                <form action="#" id="form">
-                    <label for="addOrder"></label>
-                    <textarea id="addOrder" class=""></textarea>
-                    <input type="submit" id="submit" value="Place Order">
-                </form>
-            </div>
-            <div class="ordered">
+    </div>
+    <!-------------------------- order -------------------------->
+    <div class="order" id="orderpage">
+        <form action="#" id="form">
+            <input type="text" class="addOrder" class=""></input>
+            <button type="submit" class="submitOrder">Place Order</button>
+        </form>
+        <div class="ordered">
+            <ul class="orderedList">
+                <!--
+                <div class="ordered_item">
+                    <li></li>
+                    <button></button>
+                </div>
+-->
+            </ul>
 
-            </div>
         </div>
-        <div class="recieve" id="recievepage">
-            test
-        </div>
+    </div>
+    <!-------------------------- recieve -------------------------->
+    <div class="recieve" id="recievepage">
+        test
     </div>
 </body>
 
