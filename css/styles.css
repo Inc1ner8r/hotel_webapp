@@ -5,6 +5,10 @@
           box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
 body {
   height: 100vh;
 }
@@ -47,9 +51,34 @@ body {
   padding: 20px;
 }
 
+.order #form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: silver;
+  padding: 10px;
+  gap: 20px;
+}
+
+.order #form input {
+  background: none;
+  height: 50px;
+  border: 2px solid black;
+}
+
 .recieve {
   display: none;
   height: calc(100vh - 100px);
   padding: 20px;
+}
+
+.recieveList {
+  background-color: aqua;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -1,45 +1,71 @@
-const orderPage = document.getElementById("orderpage")
-const recievePage = document.getElementById("recievepage")
-const addOrder = document.querySelector(".addOrder")
-const submitButton = document.querySelector(".submitOrder")
-const orderedList = document.querySelector(".orderedList")
-var outputText = document.getElementsByClassName("recieve")
+const orderPage = document.getElementById("orderpage");
+const recievePage = document.getElementById("recievepage");
+const addOrder = document.querySelector(".addOrder");
+const submitButton = document.querySelector(".submitOrder");
+const recieveList = document.querySelector(".recieveList");
+const mainOrdList = document.querySelector(".ordered")
 
+//Navbar 
 
 function recieveView() {
-    recievePage.style.display = "block"
-    orderPage.style.display = "none"
+    recievePage.style.display = "block";
+    orderPage.style.display = "none";
 }
 function orderView() {
-    orderPage.style.display = "block"
-    recievePage.style.display = "none"
+    orderPage.style.display = "block";
+    recievePage.style.display = "none";
 }
+
+//submit button
+
 submitButton.addEventListener('click', addItem);
 
 function addItem(e) {
-    console.log("work")
-    //make order div
-    const orderDiv = document.createElement("div")
-    orderDiv.classList.add("orderItem")
-    //order list
-    const newOrder = document.createElement("li")
-    newOrder.innerText = "hey"
-    newOrder.classList.add("newOrderItem")
-    orderDiv.appendChild(newOrder)
-    //button
-    const orderAccept = document.createElement('button')
-    orderAccept.innerText = 'accept order'
-    orderDiv.appendChild(orderAccept)
-    orderedList.appendChild(orderDiv)
+    // the input text
+    var text = addOrder.value;
+
+    //
+    //recieve page
+    //new div for order in recieve page
+    //
+    const ordRecDiv = document.createElement("div")
+    ordRecDiv.classList.add("OrdRecDiv")
+
+    // finally the item in recieve page
+    const ordRecItem = document.createElement("li")
+    ordRecItem.innerHTML = text
+    ordRecItem.classList.add("ordRecItem")
+    ordRecDiv.appendChild(ordRecItem)
+
+    //button to accept the order
+    const ordAccept = document.createElement("button")
+    ordAccept.innerHTML = "Accept"
+    ordRecDiv.appendChild(ordAccept)
+
+    //
+    //main page list
+    //new div to mainlist
+    //
+    const mainOrdDiv = document.createElement("div")
+    mainOrdDiv.classList.add("mainOrdDiv")
+
+    //Add the order to main div
+    const MainOrdItem = document.createElement("li")
+    MainOrdItem.innerHTML = text
+    MainOrdItem.classList.add("mainOrdDiv")
+    mainOrdDiv.appendChild(MainOrdItem)
+
+    //status of the order in main
+    const ordStatus = document.createElement("div")
+    ordStatus.classList.add("ordStatus")
+    ordStatus.innerHTML = "Waiting for Conformation"
+    mainOrdDiv.appendChild(ordStatus)
+
+    //
+    //add to the recieve page and main page
+    //
+    recieveList.appendChild(ordRecDiv)
+    mainOrdList.appendChild(mainOrdDiv)
 
 }
 
-
-
-
-
-function submitClick(e) {
-    var t = document.getElementById("recievepage")
-    t.innerHTML = (inputArea.value)
-    inputArea.value = ""
-}
