@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+li{
+    list-style: none;
+}
 body{
     height: 100vh;
 }
@@ -34,9 +37,30 @@ body{
 .order{
     height: calc(100vh - 100px);
     padding: 20px;
+
+    #form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(192, 192, 192);
+        padding: 10px;
+        gap: 20px;
+
+        input{
+            //border-radius: 50px;
+            background: none;
+            height: 50px;
+            border: 2px solid black;
+
+           
+        }
+    }
 }
 .recieve{
     display: none;
     height: calc(100vh - 100px);
     padding: 20px;
+}
+.recieveList{
+    background-color: aqua;
 }
