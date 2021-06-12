@@ -75,13 +75,21 @@ function addItem(e) {
 
 document.addEventListener('click', function (e) {
     if (e.target.classList == "ordAccept") {
-        console.log(e.path)
+        //select the corresponding div on main page
         var target = e.target;
         var parent = target.parentNode;
         var superparent = parent.parentNode
         var index = [].indexOf.call(superparent.children, parent);
-        console.log(parent)
-        console.log(superparent)
+        //test
         console.log("index:", index);
+        //add cooking status
+        mainOrdList.childNodes[index].lastChild.innerHTML = "Cooking"
+        //Add ready button in recieve
+        target.remove()
+        const ordReady = document.createElement("button")
+        ordReady.classList.add("ordReadyBtn")
+        ordReady.innerHTML = "Order Ready"
+        parent.appendChild(ordReady)
+
     }
 })
