@@ -5,6 +5,7 @@ const submitButton = document.querySelector(".submitOrder");
 const recieveList = document.querySelector(".recieveList");
 const mainOrdList = document.querySelector(".ordered")
 
+
 //Navbar 
 
 function recieveView() {
@@ -16,9 +17,9 @@ function orderView() {
     recievePage.style.display = "none";
 }
 
-//submit button
-
+//eventlist
 submitButton.addEventListener('click', addItem);
+
 
 function addItem(e) {
     // the input text
@@ -39,8 +40,10 @@ function addItem(e) {
 
     //button to accept the order
     const ordAccept = document.createElement("button")
+    ordAccept.classList.add("ordAccept")
     ordAccept.innerHTML = "Accept"
     ordRecDiv.appendChild(ordAccept)
+
 
     //
     //main page list
@@ -52,7 +55,7 @@ function addItem(e) {
     //Add the order to main div
     const MainOrdItem = document.createElement("li")
     MainOrdItem.innerHTML = text
-    MainOrdItem.classList.add("mainOrdDiv")
+    MainOrdItem.classList.add("mainOrdItem")
     mainOrdDiv.appendChild(MainOrdItem)
 
     //status of the order in main
@@ -67,5 +70,18 @@ function addItem(e) {
     recieveList.appendChild(ordRecDiv)
     mainOrdList.appendChild(mainOrdDiv)
 
+    addOrder.value = ""
 }
 
+document.addEventListener('click', function (e) {
+    if (e.target.classList == "ordAccept") {
+        console.log(e.path)
+        var target = e.target;
+        var parent = target.parentNode;
+        var superparent = parent.parentNode
+        var index = [].indexOf.call(superparent.children, parent);
+        console.log(parent)
+        console.log(superparent)
+        console.log("index:", index);
+    }
+})
