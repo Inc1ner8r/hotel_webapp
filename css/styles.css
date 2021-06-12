@@ -72,13 +72,28 @@ body {
   border: 2px solid black;
 }
 
+.order .ordered .mainOrdDiv {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
 .recieve {
   display: none;
   height: calc(100vh - 100px);
   padding: 20px;
 }
 
-.recieveList {
-  background-color: aqua;
+.recieve .recieveList {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.recieve .recieveList .OrdRecDiv {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=styles.css.map */

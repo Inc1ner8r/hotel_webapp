@@ -84,6 +84,7 @@ document.addEventListener('click', function (e) {
         console.log("index:", index);
         //add cooking status
         mainOrdList.childNodes[index].lastChild.innerHTML = "Cooking"
+        mainOrdList.childNodes[index].lastChild.style.background = "green"
         //Add ready button in recieve
         target.remove()
         const ordReady = document.createElement("button")
