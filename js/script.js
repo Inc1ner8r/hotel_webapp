@@ -84,7 +84,7 @@ document.addEventListener('click', function (e) {
         console.log("index:", index);
         //add cooking status
         mainOrdList.childNodes[index].lastChild.innerHTML = "Cooking"
-        mainOrdList.childNodes[index].lastChild.style.background = "green"
+        mainOrdList.childNodes[index].lastChild.style.background = "orange"
         //Add ready button in recieve
         target.remove()
         const ordReady = document.createElement("button")
@@ -93,4 +93,20 @@ document.addEventListener('click', function (e) {
         parent.appendChild(ordReady)
 
     }
+})
+document.addEventListener('click', function (e) {
+    if (e.target.classList == "ordReadyBtn") {
+        var target = e.target;
+        var parent = target.parentNode;
+        var superparent = parent.parentNode
+        var index = [].indexOf.call(superparent.children, parent);
+        //test
+        console.log("index:", index);
+        //add ready status
+        mainOrdList.childNodes[index].lastChild.innerHTML = "Ready"
+        mainOrdList.childNodes[index].lastChild.style.background = "green"
+        //remove ready button
+        target.remove()
+    }
+
 })
