@@ -13,6 +13,16 @@ app.use(express.static(path.join(__dirname, './')));
 //when client connects
 io.on('connection', socket => {
     console.log('new connection')
+
+    socket.emit('message', 'welcome')
+
+    //broadcast on connect
+    socket.broadcast.emit('message', 'user joined');
+
+    //get order text
+    socket.on('serverOrder', (text) => {
+        console.log(text);
+    })
 });
 
 const PORT = 5500 || process.env.PORT;

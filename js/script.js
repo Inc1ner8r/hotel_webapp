@@ -1,6 +1,10 @@
 //socket config
 const socket = io();
 
+socket.on('message', message => {
+    console.log(message);
+});
+
 const orderPage = document.getElementById("orderpage");
 const recievePage = document.getElementById("recievepage");
 const addOrder = document.querySelector(".addOrder");
@@ -24,9 +28,9 @@ function orderView() {
 submitButton.addEventListener('click', addItem);
 
 
-function addItem(e) {
-    // the input text
+function addItem(e) {    // the input text
     var text = addOrder.value;
+    socket.emit('serverOrder', text);
 
     //
     //recieve page
@@ -76,7 +80,7 @@ function addItem(e) {
     addOrder.value = ""
 }
 
-document.addEventListener('click', function (e) {
+document.addEventListener('click', (e) => {
     if (e.target.classList == "ordAccept") {
         //select the corresponding div on main page
         var target = e.target;
