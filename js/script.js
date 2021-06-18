@@ -1,3 +1,6 @@
+//socket config
+const socket = io();
+
 const orderPage = document.getElementById("orderpage");
 const recievePage = document.getElementById("recievepage");
 const addOrder = document.querySelector(".addOrder");
