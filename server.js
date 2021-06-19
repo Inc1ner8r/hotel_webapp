@@ -24,9 +24,13 @@ io.on('connection', socket => {
         io.emit('message', text)
     })
 
-    socket.on('serverAccept', (index, target) => {
-        io.emit('accept', index, target)
+    socket.on('serverAccept', (index) => {
+        io.emit('accept', index)
     })
+    socket.on('serverReady', (index) => {
+        io.emit('ready', index)
+    })
+
 
 });
 

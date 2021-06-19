@@ -5,8 +5,10 @@ socket.on('message', message => {
     outputOrder(message);
 });
 socket.on('accept', accept => {
-    console.log(accept);
     outputAccept(accept);
+});
+socket.on('ready', ready => {
+    outputReady(ready);
 });
 
 const orderPage = document.getElementById("orderpage");
@@ -149,22 +151,21 @@ document.addEventListener('click', (e) => {
         var parent = target.parentNode;
         var superparent = parent.parentNode
         var index = [].indexOf.call(superparent.children, parent);
-        //test
-        console.log("index:", index);
+        socket.emit('serverAccept', index);
 
-        socket.emit('serverAccept', index, target)
+        target.remove()
+        //Add ready button in recieve
+        const ordReady = document.createElement("button")
+        ordReady.classList.add("ordReadyBtn")
+        ordReady.innerHTML = "Order Ready"
+        parent.appendChild(ordReady)
     }
 })
 
-function outputAccept(index, target) {
-    mainOrdList.childNodes[index].lastChild.innerHTML = "Cooking"
-    mainOrdList.childNodes[index].lastChild.style.background = "orange"
-    //Add ready button in recieve
-    target.remove()
-    const ordReady = document.createElement("button")
-    ordReady.classList.add("ordReadyBtn")
-    ordReady.innerHTML = "Order Ready"
-    parent.appendChild(ordReady)
+function outputAccept(accept) {
+    mainOrdList.childNodes[accept].lastChild.innerHTML = "Cooking";
+    mainOrdList.childNodes[accept].lastChild.style.background = "orange";
+
 }
 
 // document.addEventListener('click', (e) => {
@@ -175,7 +176,7 @@ function outputAccept(index, target) {
 //         var superparent = parent.parentNode
 //         var index = [].indexOf.call(superparent.children, parent);
 //         //test
-//         console.log("index:", index);
+//         console.logs("index:", index);
 //         //add cooking status
 //         mainOrdList.childNodes[index].lastChild.innerHTML = "Cooking"
 //         mainOrdList.childNodes[index].lastChild.style.background = "orange"
@@ -188,19 +189,37 @@ function outputAccept(index, target) {
 
 //     }
 // })
-document.addEventListener('click', function (e) {
+
+document.addEventListener('click', (e) => {
     if (e.target.classList == "ordReadyBtn") {
+        e.preventDefault();
         var target = e.target;
         var parent = target.parentNode;
         var superparent = parent.parentNode
         var index = [].indexOf.call(superparent.children, parent);
-        //test
-        console.log("index:", index);
-        //add ready status
-        mainOrdList.childNodes[index].lastChild.innerHTML = "Ready"
-        mainOrdList.childNodes[index].lastChild.style.background = "green"
-        //remove ready button
+        socket.emit('serverReady', index);
+
         target.remove()
     }
-
 })
+
+function outputReady(ready) {
+    mainOrdList.childNodes[ready].lastChild.innerHTML = "Ready";
+    mainOrdList.childNodes[ready].lastChild.style.background = "green";
+}
+// document.addEventListener('click', function (e) {
+//     if (e.target.classList == "ordReadyBtn") {
+//         var target = e.target;
+//         var parent = target.parentNode;
+//         var superparent = parent.parentNode
+//         var index = [].indexOf.call(superparent.children, parent);
+//         //test
+//         console.log("index:", index);
+//         //add ready status
+//         mainOrdList.childNodes[index].lastChild.innerHTML = "Ready"
+//         mainOrdList.childNodes[index].lastChild.style.background = "green"
+//         //remove ready button
+//         target.remove()
+//     }
+
+// })
