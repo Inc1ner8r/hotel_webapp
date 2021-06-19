@@ -23,6 +23,11 @@ io.on('connection', socket => {
     socket.on('serverOrder', (text) => {
         io.emit('message', text)
     })
+
+    socket.on('serverAccept', (index, target) => {
+        io.emit('accept', index, target)
+    })
+
 });
 
 const PORT = 5500 || process.env.PORT;
