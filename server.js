@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 //set current folder 
-app.use(express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, './public')));
 
 //when client connects
 io.on('connection', socket => {
@@ -34,6 +34,10 @@ io.on('connection', socket => {
 
 });
 
-const PORT = 5500 || process.env.PORT;
+// const PORT = 5500 || process.env.PORT;
 
-server.listen(PORT, () => console.log(`Server at ${PORT}`));
+// server.listen(PORT, () => console.log(`Server at ${PORT}`));
+
+app.listen(process.env.PORT || 3000, function () {
+    console.log("express server on %d in %s mode", this.address().port, app.settings.env)
+})
