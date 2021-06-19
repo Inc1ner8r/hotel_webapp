@@ -14,14 +14,14 @@ app.use(express.static(path.join(__dirname, './')));
 io.on('connection', socket => {
     console.log('new connection')
 
-    socket.emit('message', 'welcome')
+    //socket.emit('message', 'welcome')
 
     //broadcast on connect
-    socket.broadcast.emit('message', 'user joined');
+    //socket.broadcast.emit('message', 'user joined');
 
     //get order text
     socket.on('serverOrder', (text) => {
-        console.log(text);
+        io.emit('message', text)
     })
 });
 

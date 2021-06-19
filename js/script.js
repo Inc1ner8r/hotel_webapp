@@ -3,6 +3,7 @@ const socket = io();
 
 socket.on('message', message => {
     console.log(message);
+    outputOrder(message);
 });
 
 const orderPage = document.getElementById("orderpage");
@@ -25,10 +26,43 @@ function orderView() {
 }
 
 //eventlist
-submitButton.addEventListener('click', addItem);
+submitButton.addEventListener('click', e => {
+    e.preventDefault();
+
+    var text = addOrder.value;
+
+    socket.emit('serverOrder', text)
+});
+
+function outputOrder(message) {
+
+    //
+    //recieve page
+    //new div for order in recieve page
+    //
+    const ordRecDiv = document.createElement("div")
+    ordRecDiv.classList.add("OrdRecDiv")
+
+    // finally the item in recieve page
+    const ordRecItem = document.createElement("li")
+    ordRecItem.innerHTML = `${message}`
+    ordRecItem.classList.add("ordRecItem")
+    ordRecDiv.appendChild(ordRecItem)
+
+    //button to accept the order
+    const ordAccept = document.createElement("button")
+    ordAccept.classList.add("ordAccept")
+    ordAccept.innerHTML = "Accept"
+    ordRecDiv.appendChild(ordAccept)
+
+    recieveList.appendChild(ordRecDiv)
 
 
-function addItem(e) {    // the input text
+
+}
+
+
+/*function addItem(e) {    // the input text
     var text = addOrder.value;
     socket.emit('serverOrder', text);
 
@@ -79,6 +113,7 @@ function addItem(e) {    // the input text
 
     addOrder.value = ""
 }
+*/
 
 document.addEventListener('click', (e) => {
     if (e.target.classList == "ordAccept") {
