@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -18,17 +20,39 @@ body {
 }
 
 .nav {
-  height: 100px;
-  background-color: black;
+  height: 100vh;
+  background-color: #262626;
   color: white;
 }
 
+.nav .navWelcome {
+  font-size: 4rem;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 30vh;
+  position: absolute;
+  color: #dbd1d1;
+  font-family: 'Josefin Sans', sans-serif;
+  padding-bottom: 1rem;
+}
+
+.nav .navWelcome span {
+  font-size: 2.3rem;
+}
+
 .nav .nav-menu {
+  padding-top: 4rem;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -38,8 +62,13 @@ body {
 }
 
 .nav .nav-menu div {
-  padding: 15px;
-  border: 1px solid white;
+  border-radius: 20px;
+  padding: 50px;
+  font-size: 1.5rem;
+  background: #212121;
+  -webkit-box-shadow: 16px 16px 25px #0f0f0f, -16px -16px 25px #3d3d3d;
+          box-shadow: 16px 16px 25px #0f0f0f, -16px -16px 25px #3d3d3d;
+  font-family: 'DM Mono', monospace;
 }
 
 .nav .nav-menu div:hover {
@@ -47,6 +76,7 @@ body {
 }
 
 .order {
+  display: none;
   height: calc(100vh - 100px);
   padding: 20px;
 }

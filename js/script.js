@@ -17,17 +17,18 @@ const addOrder = document.querySelector(".addOrder");
 const submitButton = document.querySelector(".submitOrder");
 const recieveList = document.querySelector(".recieveList");
 const mainOrdList = document.querySelector(".ordered")
+const navPage = document.querySelector(".nav")
 
 
 //Navbar 
 
 function recieveView() {
     recievePage.style.display = "block";
-    orderPage.style.display = "none";
+    navPage.style.display = "none";
 }
 function orderView() {
     orderPage.style.display = "block";
-    recievePage.style.display = "none";
+    navPage.style.display = "none";
 }
 
 //eventlist
