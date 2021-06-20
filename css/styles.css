@@ -77,8 +77,7 @@ body {
 
 .order {
   display: none;
-  height: calc(100vh - 100px);
-  padding: 20px;
+  height: 100vh;
 }
 
 .order #form {
@@ -92,11 +91,14 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: silver;
-  padding: 10px;
+  padding: 30px;
   gap: 20px;
+  height: 30vh;
+  border: 1px solid black;
 }
 
 .order #form input {
+  width: 100%;
   background: none;
   height: 50px;
   border: 2px solid black;

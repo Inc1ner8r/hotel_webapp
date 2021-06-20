@@ -17,6 +17,7 @@ body{
     display: none;
 }
 .nav{
+    //display: none;
     height: 100vh;
     background-color: #262626;
     color: white;
@@ -65,19 +66,21 @@ body{
 }
 .order{
     display: none;
-    height: calc(100vh - 100px);
-    padding: 20px;
+    height: 100vh;
 
     #form{
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: rgb(192, 192, 192);
-        padding: 10px;
+        padding: 30px;
         gap: 20px;
-
+        height: 30vh;
+        border: 1px solid black
+        ;
         input{
             //border-radius: 50px;
+            width: 100%;
             background: none;
             height: 50px;
             border: 2px solid black;
