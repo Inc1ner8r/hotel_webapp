@@ -18,18 +18,28 @@ const submitButton = document.querySelector(".submitOrder");
 const recieveList = document.querySelector(".recieveList");
 const mainOrdList = document.querySelector(".ordered")
 const navPage = document.querySelector(".nav")
+const loginbutton = document.querySelector(".loginButton")
+const loginPage = document.querySelector(".loginPage")
 
 
-//Navbar 
+//first page
 
 function recieveView() {
-    recievePage.style.display = "block";
+    loginPage.style.display = "grid";
     navPage.style.display = "none";
 }
 function orderView() {
     orderPage.style.display = "block";
     navPage.style.display = "none";
 }
+
+//login page
+
+loginbutton.addEventListener('click', e => {
+    e.preventDefault
+    loginPage.style.display = "none";
+    recievePage.style.display = "block";
+})
 
 //eventlist
 submitButton.addEventListener('click', e => {
