@@ -21,37 +21,8 @@ body {
 
 .nav {
   height: 100vh;
-  background-color: #262626;
+  background-color: #131419;
   color: white;
-}
-
-.nav .navWelcome {
-  font-size: 4rem;
-  width: 100%;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
-  height: 30vh;
-  position: absolute;
-  color: #dbd1d1;
-  font-family: 'Josefin Sans', sans-serif;
-  padding-bottom: 1rem;
-}
-
-.nav .navWelcome span {
-  font-size: 2.3rem;
-  margin-bottom: 30px;
-}
-
-@media screen and (max-height: 800px) {
-  .nav .navWelcome span {
-    margin-bottom: 55px;
-  }
-}
-
-.nav .nav-menu {
-  padding-top: 4rem;
-  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,26 +30,74 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 10rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.nav .navWelcome {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  color: #d831ae;
+  text-shadow: 0 0 50px #d831ae, 0 0 90px #d831ae, 0 0 140px #d831ae;
+  font-family: 'Josefin Sans', sans-serif;
+  height: 20vh;
+}
+
+.nav .navBox {
+  padding: 20px;
+  border: 3px solid #18a5d4;
+  -webkit-box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
+          box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
+  width: 80vw;
+  margin: 20px 0px;
+  border-radius: 40px;
+}
+
+.nav .navBox .navContinue {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: clamp(70px, 10vh, 100px);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.5rem;
+}
+
+.nav .navBox .nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: clamp(70px, 10vh, 90px);
+  padding: 40px;
 }
 
-.nav .nav-menu div {
+.nav .navBox .nav-menu div {
   border-radius: 20px;
-  padding: 50px;
   font-size: 1.5rem;
-  background: #212121;
-  -webkit-box-shadow: 16px 16px 25px #0f0f0f, -16px -16px 25px #3d3d3d;
-          box-shadow: 16px 16px 25px #0f0f0f, -16px -16px 25px #3d3d3d;
+  background: #131419;
+  -webkit-box-shadow: -7px -7px 10px rgba(255, 255, 255, 0.1), 10px 10px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: -7px -7px 10px rgba(255, 255, 255, 0.1), 10px 10px 20px rgba(0, 0, 0, 0.5);
   font-family: 'DM Mono', monospace;
+  margin: 10px;
+  padding: 30px;
 }
 
-.nav .nav-menu div:hover {
+.nav .navBox .nav-menu div:hover {
   cursor: pointer;
 }
 

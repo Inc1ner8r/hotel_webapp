@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+$pink-primary:rgb(216, 49, 174);
 
 *{
     margin: 0;
@@ -19,53 +20,66 @@ body{
 .nav{
     // display: none;
     height: 100vh;
-    background-color: #262626;
+    background-color: #131419;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 
     .navWelcome{
-        font-size: 4rem;
-        width: 100%;
         display: grid;
         place-items: center;
-        //sborder: 1px solid white;
-        height: 30vh;
-        position: absolute;
-        color: rgb(219, 209, 209);
+        font-size: 4rem;        //sborder: 1px solid white;
+        color: $pink-primary;
+        text-shadow:
+      0 0 50px $pink-primary,
+      0 0 90px $pink-primary,
+      0 0 140px $pink-primary;
         font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 1rem;
-
-        span{
-            font-size: 2.3rem;
-            //border: 1px solid wheat;
-            margin-bottom: 30px;
-
-            @media screen and (max-height: 800px){
-                margin-bottom: 55px;
-            }
+        height: 20vh;
         }
-    }
-    
-    .nav-menu{
-        padding-top: 4rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 10rem;
-        justify-content: center;
-        align-items: center;
-        
-        div{
-            border-radius: 20px;
-            padding: 50px;
-            // border: 1px solid white;
+
+    .navBox{
+        padding: 20px;
+        border: 3px solid rgb(24, 165, 212);
+        box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
+                            10px 10px 30px rgba(16, 32, 34, 0.5);
+        width: 80vw;
+        margin: 20px 0px;
+
+        border-radius: 40px;
+        .navContinue{
+            display: grid;
+            place-items: center;
+            height: clamp(70px,10vh,100px);
+            font-family: 'Josefin Sans', sans-serif;
             font-size: 1.5rem;
-            background: #212121;
-            box-shadow:  16px 16px 25px #0f0f0f,
-                        -16px -16px 25px #3d3d3d;
-            font-family: 'DM Mono', monospace;
+        }
+        
+        .nav-menu{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(70px,10vh,90px);
+            padding: 40px;
             
-            &:hover{
-                cursor: pointer;
+            div{
+                border-radius: 20px;
+                // border: 1px solid white;
+                font-size: 1.5rem;
+                background: #131419;
+                box-shadow: -7px -7px 10px rgba(255, 255, 255, 0.1),
+                            10px 10px 20px rgba(0, 0, 0, .50);
+                font-family: 'DM Mono', monospace;
+                margin: 10px;
+                padding: 30px;
+                
+                
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
     }
