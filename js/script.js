@@ -18,7 +18,7 @@ const submitButton = document.querySelector(".submitOrder");
 const recieveList = document.querySelector(".recieveList");
 const mainOrdList = document.querySelector(".ordered")
 const navPage = document.querySelector(".nav")
-const loginbutton = document.querySelector(".loginButton")
+const loginbutton = document.querySelector(".formButton")
 const loginPage = document.querySelector(".loginPage")
 
 
@@ -36,7 +36,7 @@ function orderView() {
 //login page
 
 loginbutton.addEventListener('click', e => {
-    e.preventDefault
+    e.preventDefault();
     loginPage.style.display = "none";
     recievePage.style.display = "block";
 })
@@ -44,10 +44,9 @@ loginbutton.addEventListener('click', e => {
 //eventlist
 submitButton.addEventListener('click', e => {
     e.preventDefault();
-
     var text = addOrder.value;
-
     socket.emit('serverOrder', text)
+    orderLocal();
 });
 
 function outputOrder(message) {
@@ -73,6 +72,35 @@ function outputOrder(message) {
     ordAccept.innerHTML = "Accept"
     ordRecDiv.appendChild(ordAccept)
 
+    // //
+    // //main page list
+    // //new div to mainlist
+    // //
+    // const mainOrdDiv = document.createElement("div")
+    // mainOrdDiv.classList.add("mainOrdDiv")
+
+    // //Add the order to main div
+    // const MainOrdItem = document.createElement("li")
+    // MainOrdItem.innerHTML = `${message}`
+    // MainOrdItem.classList.add("mainOrdItem")
+    // mainOrdDiv.appendChild(MainOrdItem)
+
+    // //status of the order in main
+    // const ordStatus = document.createElement("div")
+    // ordStatus.classList.add("ordStatus")
+    // ordStatus.innerHTML = "Waiting for Conformation"
+    // mainOrdDiv.appendChild(ordStatus)
+
+    //
+    //add to the recieve page and main page
+    //
+    recieveList.appendChild(ordRecDiv)
+    // mainOrdList.appendChild(mainOrdDiv)
+
+}
+function orderLocal() {
+    var text = addOrder.value;
+
     //
     //main page list
     //new div to mainlist
@@ -82,7 +110,7 @@ function outputOrder(message) {
 
     //Add the order to main div
     const MainOrdItem = document.createElement("li")
-    MainOrdItem.innerHTML = `${message}`
+    MainOrdItem.innerHTML = text
     MainOrdItem.classList.add("mainOrdItem")
     mainOrdDiv.appendChild(MainOrdItem)
 
@@ -92,10 +120,6 @@ function outputOrder(message) {
     ordStatus.innerHTML = "Waiting for Conformation"
     mainOrdDiv.appendChild(ordStatus)
 
-    //
-    //add to the recieve page and main page
-    //
-    recieveList.appendChild(ordRecDiv)
     mainOrdList.appendChild(mainOrdDiv)
 
     addOrder.value = ""
