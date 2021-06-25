@@ -34,22 +34,20 @@
     </div>
     <!------------------------login page---------------------------->
     <div class="loginPage">
-        <div class="loginBox">
+        <form class="loginBox">
             <div class="loginHead">
                 Login Here
             </div>
-            <form class="loginForm">
-                <div class="loginUser">
-                    <input type="text" name="username" id="username">
-                </div>
-                <div class="loginPass">
-                    <input type="text" name="password" id="password">
-                </div>
-                <div class="loginButton">
-                    Continue
-                </div>
-            </form>
-        </div>
+            <div class="formDiv">
+                <input type="text" class="formInput" id="username">
+                <label for="username" class="formLabel">username</label>
+            </div>
+            <div class="formDiv">
+                <input type="text" class="formInput" id="password">
+                <label for="password" class="formLabel">password</label>
+            </div>
+            <input type="submit" class="formButton" value="login">
+        </form>
     </div>
     <!-------------------------- recieve -------------------------->
     <div class="recieve" id="recievepage">
