@@ -20,6 +20,8 @@ const mainOrdList = document.querySelector(".ordered")
 const navPage = document.querySelector(".nav")
 const loginbutton = document.querySelector(".formButton")
 const loginPage = document.querySelector(".loginPage")
+const custLoginPage = document.querySelector(".custLoginPage")
+const custFormButton = document.querySelector(".custFormButton")
 
 
 //first page
@@ -29,7 +31,7 @@ function recieveView() {
     navPage.style.display = "none";
 }
 function orderView() {
-    orderPage.style.display = "block";
+    custLoginPage.style.display = "block";
     navPage.style.display = "none";
 }
 
@@ -39,6 +41,12 @@ loginbutton.addEventListener('click', e => {
     e.preventDefault();
     loginPage.style.display = "none";
     recievePage.style.display = "block";
+})
+
+custFormButton.addEventListener('click', e => {
+    e.preventDefault();
+    custLoginPage.style.display = "none";
+    orderPage.style.display = "block";
 })
 
 //eventlist
