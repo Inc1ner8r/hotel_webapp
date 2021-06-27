@@ -22,6 +22,8 @@ const loginbutton = document.querySelector(".formButton")
 const loginPage = document.querySelector(".loginPage")
 const custLoginPage = document.querySelector(".custLoginPage")
 const custFormButton = document.querySelector(".custFormButton")
+const custname = document.querySelector("#custName")
+const cusDetlOrd = document.querySelector(".cusDetlOrd")
 
 
 //first page
@@ -31,7 +33,7 @@ function recieveView() {
     navPage.style.display = "none";
 }
 function orderView() {
-    custLoginPage.style.display = "block";
+    custLoginPage.style.display = "grid";
     navPage.style.display = "none";
 }
 
@@ -44,10 +46,27 @@ loginbutton.addEventListener('click', e => {
 })
 
 custFormButton.addEventListener('click', e => {
-    e.preventDefault();
-    custLoginPage.style.display = "none";
-    orderPage.style.display = "block";
-})
+    var customerName = custname.value;
+    if (customerName == "") {
+        alert("empty");
+        e.preventDefault();
+
+    } else {
+        e.preventDefault();
+        custLoginPage.style.display = "none";
+        orderPage.style.display = "block";
+
+        var custID = Math.floor(Math.random() * 1000000);
+        custname.value = ""
+        const custNameDiv = document.createElement("div");
+        custNameDiv.innerHTML = "Customer name - " + customerName;
+        cusDetlOrd.appendChild(custNameDiv);
+        const custIdDiv = document.createElement("div");
+        custIdDiv.innerHTML = "Customer ID - " + custID;
+        cusDetlOrd.appendChild(custIdDiv);
+    }
+
+});
 
 //eventlist
 submitButton.addEventListener('click', e => {
@@ -60,77 +79,80 @@ submitButton.addEventListener('click', e => {
 function outputOrder(message) {
 
     var text = addOrder.value;
+    if (text == "") {
+        alert("empty order..u not hungry or wot!!")
+    } else {
+        //
+        //recieve page
+        //new div for order in recieve page
+        //
+        const ordRecDiv = document.createElement("div")
+        ordRecDiv.classList.add("OrdRecDiv")
 
-    //
-    //recieve page
-    //new div for order in recieve page
-    //
-    const ordRecDiv = document.createElement("div")
-    ordRecDiv.classList.add("OrdRecDiv")
+        // finally the item in recieve page
+        const ordRecItem = document.createElement("li")
+        ordRecItem.innerHTML = `${message}`
+        ordRecItem.classList.add("ordRecItem")
+        ordRecDiv.appendChild(ordRecItem)
 
-    // finally the item in recieve page
-    const ordRecItem = document.createElement("li")
-    ordRecItem.innerHTML = `${message}`
-    ordRecItem.classList.add("ordRecItem")
-    ordRecDiv.appendChild(ordRecItem)
+        //button to accept the order
+        const ordAccept = document.createElement("button")
+        ordAccept.classList.add("ordAccept")
+        ordAccept.innerHTML = "Accept"
+        ordRecDiv.appendChild(ordAccept)
 
-    //button to accept the order
-    const ordAccept = document.createElement("button")
-    ordAccept.classList.add("ordAccept")
-    ordAccept.innerHTML = "Accept"
-    ordRecDiv.appendChild(ordAccept)
+        // //
+        // //main page list
+        // //new div to mainlist
+        // //
+        // const mainOrdDiv = document.createElement("div")
+        // mainOrdDiv.classList.add("mainOrdDiv")
 
-    // //
-    // //main page list
-    // //new div to mainlist
-    // //
-    // const mainOrdDiv = document.createElement("div")
-    // mainOrdDiv.classList.add("mainOrdDiv")
+        // //Add the order to main div
+        // const MainOrdItem = document.createElement("li")
+        // MainOrdItem.innerHTML = `${message}`
+        // MainOrdItem.classList.add("mainOrdItem")
+        // mainOrdDiv.appendChild(MainOrdItem)
 
-    // //Add the order to main div
-    // const MainOrdItem = document.createElement("li")
-    // MainOrdItem.innerHTML = `${message}`
-    // MainOrdItem.classList.add("mainOrdItem")
-    // mainOrdDiv.appendChild(MainOrdItem)
+        // //status of the order in main
+        // const ordStatus = document.createElement("div")
+        // ordStatus.classList.add("ordStatus")
+        // ordStatus.innerHTML = "Waiting for Conformation"
+        // mainOrdDiv.appendChild(ordStatus)
 
-    // //status of the order in main
-    // const ordStatus = document.createElement("div")
-    // ordStatus.classList.add("ordStatus")
-    // ordStatus.innerHTML = "Waiting for Conformation"
-    // mainOrdDiv.appendChild(ordStatus)
+        //
+        //add to the recieve page and main page
+        //
+        recieveList.appendChild(ordRecDiv)
+        // mainOrdList.appendChild(mainOrdDiv)
 
-    //
-    //add to the recieve page and main page
-    //
-    recieveList.appendChild(ordRecDiv)
-    // mainOrdList.appendChild(mainOrdDiv)
+    }
+    function orderLocal() {
+        var text = addOrder.value;
 
-}
-function orderLocal() {
-    var text = addOrder.value;
+        //
+        //main page list
+        //new div to mainlist
+        //
+        const mainOrdDiv = document.createElement("div")
+        mainOrdDiv.classList.add("mainOrdDiv")
 
-    //
-    //main page list
-    //new div to mainlist
-    //
-    const mainOrdDiv = document.createElement("div")
-    mainOrdDiv.classList.add("mainOrdDiv")
+        //Add the order to main div
+        const MainOrdItem = document.createElement("li")
+        MainOrdItem.innerHTML = text
+        MainOrdItem.classList.add("mainOrdItem")
+        mainOrdDiv.appendChild(MainOrdItem)
 
-    //Add the order to main div
-    const MainOrdItem = document.createElement("li")
-    MainOrdItem.innerHTML = text
-    MainOrdItem.classList.add("mainOrdItem")
-    mainOrdDiv.appendChild(MainOrdItem)
+        //status of the order in main
+        const ordStatus = document.createElement("div")
+        ordStatus.classList.add("ordStatus")
+        ordStatus.innerHTML = "Waiting for Conformation"
+        mainOrdDiv.appendChild(ordStatus)
 
-    //status of the order in main
-    const ordStatus = document.createElement("div")
-    ordStatus.classList.add("ordStatus")
-    ordStatus.innerHTML = "Waiting for Conformation"
-    mainOrdDiv.appendChild(ordStatus)
+        mainOrdList.appendChild(mainOrdDiv)
 
-    mainOrdList.appendChild(mainOrdDiv)
-
-    addOrder.value = ""
+        addOrder.value = ""
+    }
 }
 
 
