@@ -105,19 +105,27 @@ body {
 .order {
   display: none;
   height: 100vh;
+  background-color: #131419;
+  padding: 10px;
 }
 
-.order .placeOrder {
+.order .orderHead {
+  background-color: #131419;
+  border: 2px solid white;
+}
+
+.order .orderHead .placeOrder {
   display: -ms-grid;
   display: grid;
   place-items: center;
   height: 10vh;
   font-size: 2.5rem;
   font-family: 'DM Mono', monospace;
-  background-color: silver;
+  background-color: #131419;
+  color: white;
 }
 
-.order #form {
+.order .orderHead #form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,12 +141,12 @@ body {
           justify-content: flex-start;
   padding: 3vh;
   gap: 2rem;
-  background-color: silver;
+  background-color: #131419;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 
-.order #form input {
+.order .orderHead #form input {
   top: -30px;
   width: 100%;
   -webkit-box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset, -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
@@ -150,7 +158,7 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-.order #form button {
+.order .orderHead #form button {
   background-color: #dbdbdb;
   border: 1px solid #dbdbdb;
   padding: 10px;
@@ -163,8 +171,9 @@ body {
 .order .ordered .mainOrdDiv {
   margin: 10px;
   padding: 10px;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 20px;
+  color: white;
 }
 
 .recieve {
@@ -205,7 +214,9 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   color: white;
-  border: 1px solid lightblue;
+  border: 3px solid #18a5d4;
+  -webkit-box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
+          box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
   border-radius: 2rem;
   padding: 4rem 2rem;
   -webkit-box-align: center;
@@ -217,7 +228,11 @@ body {
 }
 
 .loginPage .loginBox .loginHead {
-  margin-bottom: 3rem;
+  font-size: 2rem;
+  margin: 0rem 2rem 3rem 2rem;
+  color: #d831ae;
+  text-shadow: 0 0 40px #d831ae, 0 0 100px #d831ae;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .loginPage .loginBox .formDiv {
@@ -225,20 +240,26 @@ body {
   height: 48px;
   color: white;
   width: 100%;
-  margin: 10px;
+  margin-bottom: 30px;
+  border: none;
+  background-color: #131419;
+  outline: none;
 }
 
 .loginPage .loginBox .formDiv .formInput {
-  color: white;
+  color: #d831ae;
   width: 100%;
   height: 100%;
   background: none;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0 1rem;
-  font-size: inherit;
-  border: 2px solid white;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  -webkit-box-shadow: 3px 5px 5px #08080a inset, -3px -6px 5px #24262e inset;
+          box-shadow: 3px 5px 5px #08080a inset, -3px -6px 5px #24262e inset;
 }
 
 .loginPage .loginBox .formDiv .formInput:hover {
@@ -246,29 +267,49 @@ body {
 }
 
 .loginPage .loginBox .formDiv .formInput:focus {
-  border-color: #18a5d4;
+  border: 2px solid #18a5d4;
 }
 
 .loginPage .loginBox .formDiv .formLabel {
   position: absolute;
-  top: 0.6rem;
-  left: 1rem;
+  font-size: 1rem;
+  top: 0.5rem;
+  left: 1.2rem;
   padding: 0.25rem;
-  background-color: #131419;
+  background-color: none;
   -webkit-transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in, color 200ms ease-in;
   transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in, color 200ms ease-in;
 }
 
 .loginPage .loginBox .formInput:focus ~ .formLabel {
-  top: -1rem;
-  left: 1.2rem;
+  top: -0.8rem;
+  left: 1.5rem;
   color: #18a5d4;
+  font-size: 0.9rem;
+  background-color: #131419;
+}
+
+.loginPage .loginBox .formButton {
+  margin-top: 1rem;
+  background-color: inherit;
+  outline: none;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.2rem;
+  color: pink;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 10px #08080a, -6px -8px 10px #24262e;
+          box-shadow: 5px 5px 10px #08080a, -6px -8px 10px #24262e;
+}
+
+.loginPage .loginBox .formButton:active {
+  -webkit-box-shadow: 5px 5px 10px #08080a inset, -6px -8px 10px #24262e inset;
+          box-shadow: 5px 5px 10px #08080a inset, -6px -8px 10px #24262e inset;
 }
 
 .custLoginPage {
   background-color: #131419;
-  display: -ms-grid;
-  display: grid;
+  display: none;
   place-items: center;
   height: 100vh;
 }
@@ -284,14 +325,96 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   color: white;
-  border: 1px solid lightblue;
+  border: 3px solid #18a5d4;
+  -webkit-box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
+          box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
   border-radius: 2rem;
-  padding: 4rem 2rem;
+  padding: 0rem 2rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.custLoginPage .custLloginBox .custLoginHead {
+  font-size: 2rem;
+  margin: 3rem 2rem 4rem 2rem;
+  color: #d831ae;
+  text-shadow: 0 0 40px #d831ae, 0 0 100px #d831ae;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.custLoginPage .custLloginBox .formDiv {
+  position: relative;
+  height: 48px;
+  width: 100%;
+}
+
+.custLoginPage .custLloginBox .formDiv .custFormInput {
+  color: #fa5eff;
+  width: 100%;
+  height: 100%;
+  background: #131419;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  -webkit-box-shadow: 3px 5px 5px #08080a inset, -3px -6px 5px #24262e inset;
+          box-shadow: 3px 5px 5px #08080a inset, -3px -6px 5px #24262e inset;
+}
+
+.custLoginPage .custLloginBox .formDiv .custFormInput:hover {
+  border: 2px solid #235b6d;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.custLoginPage .custLloginBox .formDiv .custFormInput:focus {
+  border: 2px solid #18a5d4;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.custLoginPage .custLloginBox .formDiv .custFormInput:focus ~ .custFormLabel {
+  top: -0.8rem;
+  left: 1.5rem;
+  color: #18a5d4;
+  font-size: 0.8rem;
+}
+
+.custLoginPage .custLloginBox .formDiv .custFormLabel {
+  font-size: 1rem;
+  position: absolute;
+  top: 0.6rem;
+  left: 1.2rem;
+  color: #adadad;
+  padding: 0.25rem;
+  background-color: #131419;
+  -webkit-transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in, color 200ms ease-in;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in, color 200ms ease-in;
+}
+
+.custLoginPage .custLloginBox .custFormButton {
+  margin: 3rem 2rem 2.5rem 2rem;
+  background-color: inherit;
+  outline: none;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.2rem;
+  color: pink;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 10px #08080a, -6px -8px 10px #24262e;
+          box-shadow: 5px 5px 10px #08080a, -6px -8px 10px #24262e;
+}
+
+.custLoginPage .custLloginBox .custFormButton:active {
+  -webkit-box-shadow: 5px 5px 10px #08080a inset, -6px -8px 10px #24262e inset;
+          box-shadow: 5px 5px 10px #08080a inset, -6px -8px 10px #24262e inset;
 }
 /*# sourceMappingURL=styles.css.map */
