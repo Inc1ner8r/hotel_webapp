@@ -17,8 +17,8 @@ io.on('connection', socket => {
     //broadcast on connect
 
     //get order text
-    socket.on('serverOrder', (text) => {
-        io.emit('message', text)
+    socket.on('serverOrder', (data) => {
+        io.emit('message', data)
     })
 
     socket.on('serverAccept', (index) => {

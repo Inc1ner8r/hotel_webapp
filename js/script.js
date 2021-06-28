@@ -46,7 +46,7 @@ loginbutton.addEventListener('click', e => {
 })
 
 custFormButton.addEventListener('click', e => {
-    var customerName = custname.value;
+    customerName = custname.value;
     if (customerName == "") {
         alert("empty");
         e.preventDefault();
@@ -56,7 +56,7 @@ custFormButton.addEventListener('click', e => {
         custLoginPage.style.display = "none";
         orderPage.style.display = "block";
 
-        var custID = Math.floor(Math.random() * 1000000);
+        custID = Math.floor(Math.random() * 1000000);
         custname.value = ""
         const custNameDiv = document.createElement("div");
         custNameDiv.innerHTML = "Customer name - " + customerName;
@@ -65,7 +65,6 @@ custFormButton.addEventListener('click', e => {
         custIdDiv.innerHTML = "Customer ID - " + custID;
         cusDetlOrd.appendChild(custIdDiv);
     }
-
 });
 
 //eventlist
@@ -76,7 +75,7 @@ submitButton.addEventListener('click', e => {
         alert("empty order..u not hungry or wot!!")
     }
     else {
-        socket.emit('serverOrder', text);
+        socket.emit('serverOrder', data = { "text": text, "customerName": customerName, "custID": custID });
         orderLocal();
     }
 
@@ -95,7 +94,7 @@ function outputOrder(message) {
 
     // finally the item in recieve page
     const ordRecItem = document.createElement("li")
-    ordRecItem.innerHTML = `${message}`
+    ordRecItem.innerHTML = `${message.text} "for" ${message.customerName}`
     ordRecItem.classList.add("ordRecItem")
     ordRecDiv.appendChild(ordRecItem)
 
