@@ -14,10 +14,7 @@ app.use(express.static(path.join(__dirname, './')));
 io.on('connection', socket => {
     console.log('new connection')
 
-    //socket.emit('message', 'welcome')
-
     //broadcast on connect
-    //socket.broadcast.emit('message', 'user joined');
 
     //get order text
     socket.on('serverOrder', (text) => {
@@ -38,6 +35,3 @@ const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => console.log(`Server at ${PORT}`));
 
-// app.listen(process.env.PORT || 3000, function () {
-//     console.log("express server on %d in %s mode", this.address().port, app.settings.env)
-// })
