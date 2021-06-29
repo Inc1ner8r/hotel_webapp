@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 $pink-primary:rgb(216, 49, 174);
 $bg-primary: rgb(19, 20, 25);
 $blue-primary:rgb(24, 165, 212);
@@ -9,6 +10,9 @@ $blue-primary:rgb(24, 165, 212);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body{
+    font-family: 'Lato', sans-serif;
 }
 li{
     list-style: none;

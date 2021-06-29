@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
 }
 
 li {
