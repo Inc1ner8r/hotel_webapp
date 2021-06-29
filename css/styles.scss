@@ -23,6 +23,11 @@ body{
 .hidden{
     display: none;
 }
+
+//
+////----------------first page--------------------------
+//
+
 .nav{
     height: 100vh;
     background-color: $bg-primary;
@@ -91,6 +96,10 @@ body{
         }
     }
 }
+//
+////----------------order page--------------------------
+//
+
 .order{
     display: none;
     height: 100vh;
@@ -135,6 +144,10 @@ body{
                 border: 2px solid rgba(0, 0, 0, 0.678);
                 font-size: 1.5rem;
                 font-family: 'Josefin Sans', sans-serif;
+
+                &:focus{
+                    outline: none;
+                }
             }
 
             button{
@@ -161,6 +174,10 @@ body{
     
     }
 }
+//
+////----------------recieve page---------------------------------
+//
+
 .recieve{
     display: none;
     height: calc(100vh - 100px);
@@ -178,6 +195,10 @@ body{
         }
     }
 }
+
+//
+////----------------personnel login page----------------
+//
 
 .loginPage{
     height: 100vh;
@@ -243,6 +264,7 @@ body{
                 }
                 &:focus{
                     border: 2px solid $blue-primary;
+                    outline: none;
                 }
                 
             }
@@ -287,6 +309,10 @@ body{
         }
     }
 }
+
+//
+////----------------customer login page----------------
+//
 
 .custLoginPage{
     background-color: $bg-primary;

@@ -163,6 +163,10 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+.order .orderHead #form input:focus {
+  outline: none;
+}
+
 .order .orderHead #form button {
   background-color: #dbdbdb;
   border: 1px solid #dbdbdb;
@@ -273,6 +277,7 @@ body {
 
 .loginPage .loginBox .formDiv .formInput:focus {
   border: 2px solid #18a5d4;
+  outline: none;
 }
 
 .loginPage .loginBox .formDiv .formLabel {
