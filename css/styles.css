@@ -10,6 +10,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  background-color: #131419;
 }
 
 li {
@@ -111,23 +112,26 @@ body {
   display: none;
   height: 100vh;
   background-color: #131419;
-  padding: 10px;
+  padding: 20px 20px;
 }
 
 .order .orderHead {
   background-color: #131419;
-  border: 2px solid white;
+  padding: 20px;
+  -webkit-box-shadow: 5px 7px 10px #040405 inset, -5px -8px 10px #2a2b33 inset;
+          box-shadow: 5px 7px 10px #040405 inset, -5px -8px 10px #2a2b33 inset;
+  border-radius: 30px;
 }
 
 .order .orderHead .placeOrder {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  height: 10vh;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: 'DM Mono', monospace;
-  background-color: #131419;
-  color: white;
+  color: #d831ae;
+  text-shadow: 0 0 10px #d831ae, 0 0 50px #d831ae;
+  height: 9vh;
 }
 
 .order .orderHead #form {
@@ -144,62 +148,126 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  padding: 3vh;
-  gap: 2rem;
-  background-color: #131419;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  margin: 10px 0;
 }
 
 .order .orderHead #form input {
-  top: -30px;
+  margin: 10px 0;
   width: 100%;
-  -webkit-box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset, -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
-          box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset, -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
-  height: 50px;
-  border-radius: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.678);
-  font-size: 1.5rem;
+  background: none;
+  border-radius: 15px;
+  border: 2px solid white;
+  font-size: 1.2rem;
   font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  height: 2.5rem;
+  padding: 0rem 1.3rem;
 }
 
 .order .orderHead #form input:focus {
   outline: none;
+  border-color: #18a5d4;
 }
 
 .order .orderHead #form button {
-  background-color: #dbdbdb;
-  border: 1px solid #dbdbdb;
-  padding: 10px;
+  color: white;
+  outline: none;
+  background-color: #131419;
+  margin: 30px 0 10px 0;
+  padding: 10px 15px;
+  border: none;
+  font-size: 1rem;
   border-radius: 20px;
-  font-size: 1.3rem;
-  -webkit-box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.548), -8px -8px 12px 0 rgba(255, 255, 255, 0.158);
-          box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.548), -8px -8px 12px 0 rgba(255, 255, 255, 0.158);
+  -webkit-box-shadow: 4px 6px 3px #000000, -3px -4px 5px #34363d;
+          box-shadow: 4px 6px 3px #000000, -3px -4px 5px #34363d;
 }
 
-.order .ordered .mainOrdDiv {
+.order .yourOrders .yourOrdersHead {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+
+.order .yourOrders .ordered {
+  border: 2px solid #18a5d4;
+  border-radius: 10px;
+  -webkit-box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
+          box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
+}
+
+.order .yourOrders .ordered .mainOrdDiv {
   margin: 10px;
   padding: 10px;
   border: 2px solid white;
-  border-radius: 20px;
+  border-radius: 10px;
   color: white;
+}
+
+.order .yourOrders .ordered .mainOrdDiv .mainOrdItem {
+  padding: 10px;
+  font-weight: bolder;
+  font-size: 1.4rem;
+  color: #d831ae;
+  overflow-wrap: break-word;
+  border: 1px solid teal;
+}
+
+.order .yourOrders .ordered .mainOrdDiv .ordStatus {
+  padding: 5px;
+  font-size: 1.1rem;
+  margin: 5px 0 10px 0;
+}
+
+.order .yourOrders .ordered .mainOrdDiv .ordStatus span {
+  padding: 5px;
+  background-color: #757575b7;
+  border-radius: 5px;
+}
+
+.order .cusDetlOrd {
+  background-color: #131419;
+  padding: 20px;
+  -webkit-box-shadow: 5px 7px 5px #040405 inset, -5px -8px 5px #2a2b33 inset;
+          box-shadow: 5px 7px 5px #040405 inset, -5px -8px 5px #2a2b33 inset;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.order .cusDetlOrd div {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
 }
 
 .recieve {
   display: none;
   height: calc(100vh - 100px);
   padding: 20px;
+  color: white;
 }
 
 .recieve .recieveList {
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 10px;
 }
 
 .recieve .recieveList .OrdRecDiv {
   margin: 10px;
   padding: 10px;
-  border: 2px solid black;
+  border: 2px solid #18a5d4;
   border-radius: 10px;
 }
 

@@ -125,7 +125,7 @@ function orderLocal() {
     //status of the order in main
     const ordStatus = document.createElement("div")
     ordStatus.classList.add("ordStatus")
-    ordStatus.innerHTML = "Waiting for Conformation"
+    ordStatus.innerHTML = "Status - <span>Waiting for Conformation</span>"
     mainOrdDiv.appendChild(ordStatus)
 
     mainOrdList.appendChild(mainOrdDiv)
@@ -152,8 +152,9 @@ document.addEventListener('click', (e) => {
 })
 
 function outputAccept(accept) {
-    mainOrdList.childNodes[accept].lastChild.innerHTML = "Cooking";
-    mainOrdList.childNodes[accept].lastChild.style.background = "orange";
+    mainOrdList.childNodes[accept].lastChild.innerHTML = "Status - <span>Order confirmed... Cooking</span>";
+    mainOrdList.childNodes[accept].lastChild.querySelector('span').style.background = "orange";
+    mainOrdList.childNodes[accept].lastChild.querySelector('span').style.color = "black";
 
 }
 
@@ -172,6 +173,6 @@ document.addEventListener('click', (e) => {
 })
 
 function outputReady(ready) {
-    mainOrdList.childNodes[ready].lastChild.innerHTML = "Ready";
-    mainOrdList.childNodes[ready].lastChild.style.background = "green";
+    mainOrdList.childNodes[ready].lastChild.innerHTML = "Status - <span>Order ready... Please Collect</span>";
+    mainOrdList.childNodes[ready].lastChild.querySelector('span').style.background = "green";
 }
