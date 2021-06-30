@@ -15,8 +15,6 @@ const orderPage = document.getElementById("orderpage");
 const recievePage = document.getElementById("recievepage");
 const addOrder = document.querySelector(".addOrder");
 const submitButton = document.querySelector(".submitOrder");
-const recieveList = document.querySelector(".recieveList");
-const mainOrdList = document.querySelector(".ordered")
 const navPage = document.querySelector(".nav")
 const loginbutton = document.querySelector(".formButton")
 const loginPage = document.querySelector(".loginPage")
@@ -24,7 +22,7 @@ const custLoginPage = document.querySelector(".custLoginPage")
 const custFormButton = document.querySelector(".custFormButton")
 const custname = document.querySelector("#custName")
 const cusDetlOrd = document.querySelector(".cusDetlOrd")
-
+const yourOrders = document.querySelector(".yourOrders")
 
 //first page
 
@@ -89,6 +87,13 @@ function outputOrder(message) {
     //recieve page
     //new div for order in recieve page
     //
+    if (document.querySelector(".recieveList") == null) {
+        const newRecList = document.createElement("li")
+        newRecList.classList.add("recieveList")
+        recievePage.appendChild(newRecList);
+    }
+    recieveList = document.querySelector(".recieveList");
+
     const ordRecDiv = document.createElement("div")
     ordRecDiv.classList.add("OrdRecDiv")
 
@@ -108,6 +113,14 @@ function outputOrder(message) {
 }
 function orderLocal() {
     var text = addOrder.value;
+
+    if (document.querySelector(".ordered") == null) {
+        const newRecListMain = document.createElement("li")
+        newRecListMain.classList.add("ordered");
+        yourOrders.appendChild(newRecListMain);
+    }
+
+    mainOrdList = document.querySelector(".ordered")
 
     //
     //main page list
