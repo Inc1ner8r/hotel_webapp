@@ -212,7 +212,6 @@ body {
   font-size: 1.4rem;
   color: #d831ae;
   overflow-wrap: break-word;
-  border: 1px solid teal;
 }
 
 .order .yourOrders .ordered .mainOrdDiv .ordStatus {
