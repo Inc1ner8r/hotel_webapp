@@ -1,474 +1,472 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono&display=swap");
 //@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-$pink-primary:rgb(216, 49, 174);
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+$pink-primary: rgb(216, 49, 174);
 $bg-primary: rgb(19, 20, 25);
-$blue-primary:rgb(24, 165, 212);
+$blue-primary: rgb(24, 165, 212);
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    font-family: 'Lato', sans-serif;
-    background-color: $bg-primary;
+body {
+  font-family: "Lato", sans-serif;
+  background-color: $bg-primary;
 }
-li{
-    list-style: none;
+li {
+  list-style: none;
 }
-body{
-    height: 100vh;
+body {
+  height: 100vh;
 }
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
 //
 ////----------------first page--------------------------
 //
 
-.nav{
-    height: 100vh;
-    background-color: $bg-primary;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    //display: none;
+.nav {
+  height: 100vh;
+  background-color: $bg-primary;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  //display: none;
 
-    .navWelcome{
-        margin: 20px;
-        display: grid;
-        place-items: center;
-        font-size: 4rem;        //sborder: 1px solid white;
-        color: $pink-primary;
-        text-shadow:
-            0 0 50px $pink-primary,
-            0 0 90px $pink-primary,
-            0 0 140px $pink-primary;
-        font-family: 'Josefin Sans', sans-serif;
-        height: 20vh;
-        }
+  .navWelcome {
+    margin: 20px;
+    display: grid;
+    place-items: center;
+    font-size: 4rem; //sborder: 1px solid white;
+    color: $pink-primary;
+    text-shadow: 0 0 50px $pink-primary, 0 0 90px $pink-primary,
+      0 0 140px $pink-primary;
+    font-family: "Josefin Sans", sans-serif;
+    height: 20vh;
+  }
 
-    .navBox{
-        padding: 20px;
-        border: 3px solid $blue-primary;
-        box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
-                    10px 10px 30px rgba(16, 32, 34, 0.5);
-        width: clamp(270px,80vw,900px);
-        margin: 20px 0px;
+  .navBox {
+    padding: 20px;
+    border: 3px solid $blue-primary;
+    box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
+      10px 10px 30px rgba(16, 32, 34, 0.5);
+    width: clamp(270px, 80vw, 900px);
+    margin: 20px 0px;
 
-        border-radius: 40px;
-        .navContinue{
-            display: grid;
-            place-items: center;
-            height: clamp(70px,10vh,100px);
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 2.2rem;
-        }
-        
-        .nav-menu{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: clamp(70px,10vh,90px);
-            padding: 40px;
-            
-            div{
-                border-radius: 20px;
-                // border: 1px solid white;
-                font-size: 1.5rem;
-                background: $bg-primary;
-                box-shadow: -7px -7px 10px rgba(255, 255, 255, 0.1),
-                            10px 10px 20px rgba(0, 0, 0, .50);
-                font-family: 'DM Mono', monospace;
-                margin: 10px;
-                padding: 30px;
-                
-                
-                &:hover{
-                    cursor: pointer;
-                }
-            }
-        }
+    border-radius: 40px;
+    .navContinue {
+      display: grid;
+      place-items: center;
+      height: clamp(70px, 10vh, 100px);
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 2.2rem;
     }
+
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(70px, 10vh, 90px);
+      padding: 40px;
+
+      div {
+        border-radius: 20px;
+        // border: 1px solid white;
+        font-size: 1.5rem;
+        background: $bg-primary;
+        box-shadow: -7px -7px 10px rgba(255, 255, 255, 0.1),
+          10px 10px 20px rgba(0, 0, 0, 0.5);
+        font-family: "DM Mono", monospace;
+        margin: 10px;
+        padding: 30px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 //
 ////----------------order page--------------------------
 //
 
-.order{
-    display: none;
-    height: 100vh;
+.order {
+  display: none;
+  height: 100vh;
+  background-color: $bg-primary;
+  padding: 20px 20px;
+
+  .orderHead {
     background-color: $bg-primary;
-    padding: 20px 20px;
+    padding: 20px;
+    box-shadow: 5px 7px 10px #040405 inset, -5px -8px 10px #2a2b33 inset;
+    border-radius: 30px;
 
-    .orderHead{
-        background-color: $bg-primary;
-        padding: 20px;
-        box-shadow:  5px 7px 10px #040405 inset,
-             -5px -8px 10px #2a2b33 inset;
-        border-radius: 30px;
-
-        .placeOrder{
-            display: grid;
-            place-items: center;
-            font-size: 2rem;
-            font-family: 'DM Mono', monospace;
-            //background-color: $bg-primary;
-            color: $pink-primary;
-            text-shadow:
-            0 0 10px $pink-primary,
-            0 0 50px $pink-primary;
-            height: 9vh;
-
-        }
-
-        #form{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            margin: 10px 0;
-
-            input{
-                margin: 10px 0;
-                width: 100%;
-                background: none;
-                border-radius: 15px; 
-                border: 2px solid white;
-                font-size: 1.2rem;
-                font-family: 'Josefin Sans', sans-serif;
-                color: white;
-                height: 2.5rem;
-                padding: 0rem 1.3rem;
-
-                &:focus{
-                    outline: none;
-                    border-color: $blue-primary;
-                }
-            }
-
-            button{
-                color: white;
-                outline: none;
-                background-color: $bg-primary;
-                margin: 30px 0 10px 0;
-                padding: 10px 15px;
-                border: none;
-                font-size: 1rem;
-                border-radius: 20px;
-                box-shadow:  4px 6px 3px #000000,
-                -3px -4px 5px #34363d;
-            }
-        }
-    }   
-    .yourOrders{
-
-        .yourOrdersHead{
-            display: grid;
-            place-items: center;
-            color: white;
-            font-size: 2rem;
-            padding: 1rem 0 ;
-        }
-        .ordered{
-            border: 2px solid $blue-primary;
-            border-radius: 10px;
-            box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
-                    10px 10px 30px rgba(16, 32, 34, 0.5);
-            
-            .mainOrdDiv{
-                margin: 10px;
-                padding: 10px;
-                border: 2px solid white;
-                border-radius: 10px;
-                color: white;
-
-                .mainOrdItem{
-                    padding: 10px;
-                    font-weight: bolder;
-                    font-size: 1.4rem;
-                    color: $pink-primary;
-                    overflow-wrap: break-word;
-                }
-                .ordStatus{
-                    padding: 5px;
-                    font-size: 1.1rem;
-                    margin: 5px 0 10px 0;
-
-                    span{
-                        padding: 5px;
-                        background-color: #757575b7;
-                        border-radius: 5px;
-                    }
-                }
-
-            }
-        }
+    .placeOrder {
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-family: "DM Mono", monospace;
+      //background-color: $bg-primary;
+      color: $pink-primary;
+      text-shadow: 0 0 10px $pink-primary, 0 0 50px $pink-primary;
+      height: 9vh;
     }
-    .cusDetlOrd{
-        background-color: $bg-primary;
-        padding: 20px;
-        box-shadow:  5px 7px 5px #040405 inset,
-             -5px -8px 5px #2a2b33 inset;
-        border-radius: 20px;
-        margin-bottom: 20px;
+
+    #form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 10px 0;
+
+      input {
+        margin: 10px 0;
+        width: 100%;
+        background: none;
+        border-radius: 15px;
+        border: 2px solid white;
+        font-size: 1.2rem;
+        font-family: "Josefin Sans", sans-serif;
         color: white;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        height: 2.5rem;
+        padding: 0rem 1.3rem;
 
-        div{
-            display: grid;
-            place-items: center;
-            font-size: 1.2rem;
+        &:focus {
+          outline: none;
+          border-color: $blue-primary;
         }
+      }
+
+      button {
+        color: white;
+        outline: none;
+        background-color: $bg-primary;
+        margin: 30px 0 10px 0;
+        padding: 10px 15px;
+        border: none;
+        font-size: 1rem;
+        border-radius: 20px;
+        box-shadow: 4px 6px 3px #000000, -3px -4px 5px #34363d;
+      }
     }
+  }
+  .yourOrders {
+    .yourOrdersHead {
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 2rem;
+      padding: 1rem 0;
+    }
+    .ordered {
+      border: 2px solid $blue-primary;
+      border-radius: 10px;
+      box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
+        10px 10px 30px rgba(16, 32, 34, 0.5);
+
+      .mainOrdDiv {
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+
+        .mainOrdItem {
+          padding: 10px;
+          font-weight: bolder;
+          font-size: 1.4rem;
+          color: $pink-primary;
+          overflow-wrap: break-word;
+        }
+        .ordStatus {
+          padding: 5px;
+          font-size: 1.1rem;
+          margin: 5px 0 10px 0;
+
+          span {
+            padding: 5px;
+            background-color: #757575b7;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+  .cusDetlOrd {
+    background-color: $bg-primary;
+    padding: 20px;
+    box-shadow: 5px 7px 5px #040405 inset, -5px -8px 5px #2a2b33 inset;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    div {
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+  }
 }
 //
 ////----------------recieve page---------------------------------
 //
 
-.recieve{
-    display: none;
-    height: calc(100vh - 100px);
-    padding: 20px;
-    color: white;
+.recieve {
+  display: none;
+  height: 100vh;
+  padding: 20px;
+  color: white;
 
-    .recieveList{
-        border: 1px solid white;
-        padding: 10px;
+  .recieveHead {
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-family: "DM Mono", monospace;
+    //background-color: $bg-primary;
+    color: $pink-primary;
+    text-shadow: 0 0 10px $pink-primary, 0 0 50px $pink-primary;
+    height: 9vh;
+  }
 
-        .OrdRecDiv{
-            margin: 10px;
-            padding: 10px;
-            border: 2px solid $blue-primary;
-            border-radius: 10px;
-        }
+  .recieveList {
+    border: 1px solid white;
+    padding: 10px;
+
+    .custNameOrdRec {
+      border: 1px solid red;
     }
+
+    .OrdRecDiv {
+      margin: 10px;
+      padding: 10px;
+      border: 2px solid $blue-primary;
+      border-radius: 10px;
+    }
+  }
 }
 
 //
 ////----------------personnel login page----------------
 //
 
-.loginPage{
-    height: 100vh;
-    background-color: $bg-primary;
-    display: grid;
-    place-items: center;
-    display: none;
+.loginPage {
+  height: 100vh;
+  background-color: $bg-primary;
+  display: grid;
+  place-items: center;
+  display: none;
 
-    .loginBox{
-        font-size: 1.2rem;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        color: white;
-        border: 3px solid $blue-primary;
-        box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
-                    10px 10px 30px rgba(16, 32, 34, 0.5);
-        border-radius: 2rem;
-        padding: 4rem 2rem;
-        align-items: center;
-        justify-content: center;
+  .loginBox {
+    font-size: 1.2rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border: 3px solid $blue-primary;
+    box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
+      10px 10px 30px rgba(16, 32, 34, 0.5);
+    border-radius: 2rem;
+    padding: 4rem 2rem;
+    align-items: center;
+    justify-content: center;
 
-        .loginHead{
-            font-size: 2rem;
-            margin: 0rem 2rem 3rem 2rem;
-            color: $pink-primary;
-            text-shadow:
-                0 0 40px $pink-primary,
-                0 0 100px $pink-primary;
-        font-family: 'Josefin Sans', sans-serif;
-        }
-
-        .formDiv{
-            position: relative;
-            height: 48px;
-            // margin-bottom: 1rem;
-            color: white;
-            width: 100%;
-            margin-bottom: 30px;
-            border: none;
-            background-color: $bg-primary;
-            outline: none;
-            
-            .formInput{
-                color: $pink-primary;
-                width: 100%;
-                height: 100%;
-                background: none ;
-                position: absolute;
-                top: 0;
-                left: 0;
-                padding: 0 1.5rem;
-                //z-index: 1;
-                font-size: 1rem;
-                border: none;
-                border-radius: 30px;
-                box-shadow:  3px 5px 5px #08080a inset,
-             -3px -6px 5px #24262e inset;
-
-                &:hover{
-                    border-color: rgb(142, 223, 255);
-
-                }
-                &:focus{
-                    border: 2px solid $blue-primary;
-                    outline: none;
-                }
-                
-            }
-            .formLabel{
-                position: absolute;
-                font-size: 1rem;
-                top: 0.5rem;
-                left: 1.2rem;
-                padding: 0.25rem;
-                background-color: none;
-                transition: top 200ms ease-in,
-                            left 200ms ease-in,
-                            font-size 200ms ease-in,
-                            color 200ms ease-in;                    
-            }
-        }
-        .formInput:focus ~ .formLabel {
-                top: -0.8rem;
-                left: 1.5rem;
-                color: $blue-primary;
-                font-size: 0.9rem;
-                background-color: $bg-primary;
-        }
-
-        .formButton{
-            margin-top: 1rem;
-            background-color: inherit;
-            outline: none;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            font-size: 1.2rem;
-            color: pink;
-            border-radius: 20px;
-            box-shadow:  5px 5px 10px #08080a,
-             -6px -8px 10px #24262e;
-
-            &:active{
-                box-shadow:  5px 5px 10px #08080a inset,
-             -6px -8px 10px #24262e inset;
-            }
-
-        }
+    .loginHead {
+      font-size: 2rem;
+      margin: 0rem 2rem 3rem 2rem;
+      color: $pink-primary;
+      text-shadow: 0 0 40px $pink-primary, 0 0 100px $pink-primary;
+      font-family: "Josefin Sans", sans-serif;
     }
+
+    .formDiv {
+      position: relative;
+      height: 48px;
+      // margin-bottom: 1rem;
+      color: white;
+      width: 100%;
+      margin-bottom: 30px;
+      border: none;
+      background-color: $bg-primary;
+      outline: none;
+
+      .formInput {
+        color: $pink-primary;
+        width: 100%;
+        height: 100%;
+        background: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 1.5rem;
+        //z-index: 1;
+        font-size: 1rem;
+        border: none;
+        border-radius: 30px;
+        box-shadow: 3px 5px 5px #08080a inset, -3px -6px 5px #24262e inset;
+
+        &:hover {
+          border-color: rgb(142, 223, 255);
+        }
+        &:focus {
+          border: 2px solid $blue-primary;
+          outline: none;
+        }
+      }
+      .formLabel {
+        position: absolute;
+        font-size: 1rem;
+        top: 0.5rem;
+        left: 1.2rem;
+        padding: 0.25rem;
+        background-color: none;
+        transition: top 200ms ease-in, left 200ms ease-in,
+          font-size 200ms ease-in, color 200ms ease-in;
+      }
+    }
+    .formInput:focus ~ .formLabel {
+      top: -0.8rem;
+      left: 1.5rem;
+      color: $blue-primary;
+      font-size: 0.9rem;
+      background-color: $bg-primary;
+    }
+
+    .formButton {
+      margin-top: 1rem;
+      background-color: inherit;
+      outline: none;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.2rem;
+      color: pink;
+      border-radius: 20px;
+      box-shadow: 5px 5px 10px #08080a, -6px -8px 10px #24262e;
+
+      &:active {
+        box-shadow: 5px 5px 10px #08080a inset, -6px -8px 10px #24262e inset;
+      }
+    }
+  }
 }
 
 //
 ////----------------customer login page----------------
 //
 
-.custLoginPage{
-    background-color: $bg-primary;
-    display: none;
-    place-items: center;
-    height: 100vh;
+.custLoginPage {
+  background-color: $bg-primary;
+  display: none;
+  place-items: center;
+  height: 100vh;
 
-    .custLloginBox{
-        font-size: 1.2rem;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        color: white;
-        border: 3px solid $blue-primary;
-        box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
-                    10px 10px 30px rgba(16, 32, 34, 0.5);
-        border-radius: 2rem;
-        padding: 0rem 2rem;
-        align-items: center;
-        justify-content: center;
+  .custLloginBox {
+    font-size: 1.2rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border: 3px solid $blue-primary;
+    box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
+      10px 10px 30px rgba(16, 32, 34, 0.5);
+    border-radius: 2rem;
+    padding: 0rem 2rem;
+    align-items: center;
+    justify-content: center;
 
-        .custLoginHead{
-            font-size: 2rem;
-            margin: 3rem 2rem 4rem 2rem;
-            color: $pink-primary;
-            text-shadow:
-                0 0 40px $pink-primary,
-                0 0 100px $pink-primary;
-        font-family: 'Josefin Sans', sans-serif;
-        }
-        .formDiv{
-            position: relative;
-            height: 48px;
-            width: 100%;
-
-            .custFormInput{
-                color: rgb(250, 94, 255);
-                width: 100%;
-                height: 100%;
-                background: $bg-primary ;
-                position: absolute;
-                top: 0;
-                left: 0;
-                padding: 0 1.5rem;
-                //z-index: 1;
-                font-size: 1rem;
-                border: none;
-                outline: none;
-                border-radius: 30px;
-                box-shadow:  3px 5px 5px #08080a inset,
-             -3px -6px 5px #24262e inset;
-
-                &:hover{
-                    border: 2px solid rgb(35, 91, 109);
-                    box-shadow:none;
-                }
-                &:focus{
-                    border: 2px solid $blue-primary;
-                    box-shadow: none;
-                }             
-            }
-
-            .custFormInput:focus ~ .custFormLabel {
-                top: -0.8rem;
-                left: 1.5rem;
-                color: $blue-primary;
-                font-size: 0.8rem;
-                }
-
-            .custFormLabel{
-                font-size: 1rem;
-                position: absolute;
-                top: 0.6rem;
-                left: 1.2rem;
-                color: rgb(173, 173, 173);
-                padding: 0.25rem;
-                background-color: $bg-primary;
-                transition: top 200ms ease-in,
-                            left 200ms ease-in,
-                            font-size 200ms ease-in,
-                            color 200ms ease-in;             
-            }
-        }
-        .custFormButton{
-            margin: 3rem 2rem 2.5rem 2rem;
-            background-color: inherit;
-            outline: none;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            font-size: 1.2rem;
-            color: pink;
-            border-radius: 20px;
-            box-shadow:  5px 5px 10px #08080a,
-             -6px -8px 10px #24262e;
-
-            &:active{
-                box-shadow:  5px 5px 10px #08080a inset,
-             -6px -8px 10px #24262e inset;
-            }
-        }
+    .custLoginHead {
+      font-size: 2rem;
+      margin: 3rem 2rem 4rem 2rem;
+      color: $pink-primary;
+      text-shadow: 0 0 40px $pink-primary, 0 0 100px $pink-primary;
+      font-family: "Josefin Sans", sans-serif;
     }
+    .formDiv {
+      position: relative;
+      height: 48px;
+      width: 100%;
+
+      .custFormInput {
+        color: rgb(250, 94, 255);
+        width: 100%;
+        height: 100%;
+        background: $bg-primary;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 1.5rem;
+        //z-index: 1;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        border-radius: 30px;
+        box-shadow: 3px 5px 5px #08080a inset, -3px -6px 5px #24262e inset;
+
+        &:hover {
+          border: 2px solid rgb(35, 91, 109);
+          box-shadow: none;
+        }
+        &:focus {
+          border: 2px solid $blue-primary;
+          box-shadow: none;
+        }
+      }
+
+      .custFormInput:focus ~ .custFormLabel {
+        top: -0.8rem;
+        left: 1.5rem;
+        color: $blue-primary;
+        font-size: 0.8rem;
+      }
+
+      .custFormLabel {
+        font-size: 1rem;
+        position: absolute;
+        top: 0.6rem;
+        left: 1.2rem;
+        color: rgb(173, 173, 173);
+        padding: 0.25rem;
+        background-color: $bg-primary;
+        transition: top 200ms ease-in, left 200ms ease-in,
+          font-size 200ms ease-in, color 200ms ease-in;
+      }
+    }
+    .custFormButton {
+      margin: 3rem 2rem 2.5rem 2rem;
+      background-color: inherit;
+      outline: none;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.2rem;
+      color: pink;
+      border-radius: 20px;
+      box-shadow: 5px 5px 10px #08080a, -6px -8px 10px #24262e;
+
+      &:active {
+        box-shadow: 5px 5px 10px #08080a inset, -6px -8px 10px #24262e inset;
+      }
+    }
+  }
 }
+
+// //for testing purpose
+// .nav {
+//   display: none;
+// }
+// .order {
+//   display: block;
+// }
+// .recieve {
+//   display: block;
+// }

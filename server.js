@@ -24,6 +24,9 @@ io.on('connection', socket => {
     socket.on('serverAccept', (index) => {
         io.emit('accept', index)
     })
+    socket.on('serverDecline', (index) => {
+        io.emit('decline', index)
+    })
     socket.on('serverReady', (index) => {
         io.emit('ready', index)
     })

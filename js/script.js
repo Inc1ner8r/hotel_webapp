@@ -7,6 +7,9 @@ socket.on('message', message => {
 socket.on('accept', accept => {
     outputAccept(accept);
 });
+socket.on('decline', decline => {
+    outputdecline(decline);
+});
 socket.on('ready', ready => {
     outputReady(ready);
 });
@@ -80,9 +83,6 @@ submitButton.addEventListener('click', e => {
 });
 
 function outputOrder(message) {
-
-    var text = addOrder.value;
-
     //
     //recieve page
     //new div for order in recieve page
@@ -93,24 +93,44 @@ function outputOrder(message) {
         recievePage.appendChild(newRecList);
     }
     recieveList = document.querySelector(".recieveList");
+    console.log(document.querySelector(`.${message.customerName[0]}${message.custID}`))
+    if (document.querySelector(`.${message.customerName[0]}${message.custID}`) == null){
+        console.log(recieveList)
+        const custNameOrdRec = document.createElement("div")
+        custNameOrdRec.classList.add("custNameOrdRec")
+        custNameOrdRec.classList.add(`${message.customerName[0]}${message.custID}`)
+        custNameOrdRec.innerHTML = `Customer name - ${message.customerName}`
+        recieveList.appendChild(custNameOrdRec)
+    }
 
+    const custNameOrdRec = document.querySelector(`.${message.customerName[0]}${message.custID}`)
     const ordRecDiv = document.createElement("div")
     ordRecDiv.classList.add("OrdRecDiv")
 
     // finally the item in recieve page
     const ordRecItem = document.createElement("li")
-    ordRecItem.innerHTML = `${message.text} "for" ${message.customerName}`
+    ordRecItem.innerHTML = `${message.text}`
     ordRecItem.classList.add("ordRecItem")
     ordRecDiv.appendChild(ordRecItem)
 
+    const recButtonDiv = document.createElement("div");
+    recButtonDiv.classList.add("recButtonDiv");
+    ordRecDiv.appendChild(recButtonDiv);
+    
     //button to accept the order
-    const ordAccept = document.createElement("button")
-    ordAccept.classList.add("ordAccept")
-    ordAccept.innerHTML = "Accept"
-    ordRecDiv.appendChild(ordAccept)
+    const ordAccept = document.createElement("button");
+    ordAccept.classList.add("ordAccept");
+    ordAccept.innerHTML = "Available";
+    recButtonDiv.appendChild(ordAccept);
 
-    recieveList.appendChild(ordRecDiv)
+    const ordDecline = document.createElement("button");
+    ordDecline.classList.add("ordDecline");
+    ordDecline.innerHTML = "Decline";
+    recButtonDiv.appendChild(ordDecline);
+
+    custNameOrdRec.appendChild(ordRecDiv)
 }
+
 function orderLocal() {
     var text = addOrder.value;
 
@@ -147,20 +167,31 @@ function orderLocal() {
 }
 
 document.addEventListener('click', (e) => {
-    if (e.target.classList == "ordAccept") {
+    if (e.target.classList == "ordAccept" || e.target.classList == "ordDecline") {
+        console.log(e.target.classList)
         e.preventDefault();
         var target = e.target;
         var parent = target.parentNode;
         var superparent = parent.parentNode
-        var index = [].indexOf.call(superparent.children, parent);
-        socket.emit('serverAccept', index);
+        var superparentplus = superparent.parentNode
+        var index = [].indexOf.call(superparentplus.children, superparent);
+        $(parent).empty()
 
-        target.remove()
-        //Add ready button in recieve
-        const ordReady = document.createElement("button")
-        ordReady.classList.add("ordReadyBtn")
-        ordReady.innerHTML = "Order Ready"
-        parent.appendChild(ordReady)
+        if (e.target.classList == "ordAccept"){        
+            socket.emit('serverAccept', index);
+            //Add ready button in recieve
+            const ordReady = document.createElement("button")
+            ordReady.classList.add("ordReadyBtn")
+            ordReady.innerHTML = "Order Ready"
+            parent.appendChild(ordReady)
+        }
+        else{
+            socket.emit('serverDecline', index);
+            const ordDeclined = document.createElement("div")
+            ordDeclined.classList.add("ordDeclined")
+            ordDeclined.innerHTML = "Order Declined"
+            parent.appendChild(ordDeclined)
+        }
     }
 })
 
@@ -168,10 +199,13 @@ function outputAccept(accept) {
     mainOrdList.childNodes[accept].lastChild.innerHTML = "Status - <span>Order confirmed... Cooking</span>";
     mainOrdList.childNodes[accept].lastChild.querySelector('span').style.background = "orange";
     mainOrdList.childNodes[accept].lastChild.querySelector('span').style.color = "black";
-
 }
 
-
+function outputdecline(decline) {
+    mainOrdList.childNodes[decline].lastChild.innerHTML = "Item not available";
+    mainOrdList.childNodes[decline].lastChild.style.background = "red";
+    mainOrdList.childNodes[decline].lastChild.style.color = "white";
+}
 document.addEventListener('click', (e) => {
     if (e.target.classList == "ordReadyBtn") {
         e.preventDefault();
@@ -180,7 +214,6 @@ document.addEventListener('click', (e) => {
         var superparent = parent.parentNode
         var index = [].indexOf.call(superparent.children, parent);
         socket.emit('serverReady', index);
-
         target.remove()
     }
 })
@@ -189,3 +222,7 @@ function outputReady(ready) {
     mainOrdList.childNodes[ready].lastChild.innerHTML = "Status - <span>Order ready... Please Collect</span>";
     mainOrdList.childNodes[ready].lastChild.querySelector('span').style.background = "green";
 }
+
+// //for testing purpose
+// customerName = "kek"
+// custID = "1234"
