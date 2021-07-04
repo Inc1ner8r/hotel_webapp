@@ -4,8 +4,9 @@ const socket = io();
 socket.on('message', message => {
     outputOrder(message);
 });
-socket.on('accept', accept => {
-    outputAccept(accept);
+socket.on('accept', data => {
+    console.log("kek")
+    outputAccept(data);
 });
 socket.on('decline', decline => {
     outputdecline(decline);
@@ -13,6 +14,9 @@ socket.on('decline', decline => {
 socket.on('ready', ready => {
     outputReady(ready);
 });
+socket.on('socketid', socketid => {
+    id = socketid
+})
 
 const orderPage = document.getElementById("orderpage");
 const recievePage = document.getElementById("recievepage");
@@ -57,13 +61,12 @@ custFormButton.addEventListener('click', e => {
         custLoginPage.style.display = "none";
         orderPage.style.display = "block";
 
-        custID = Math.floor(Math.random() * 1000000);
         custname.value = ""
         const custNameDiv = document.createElement("div");
         custNameDiv.innerHTML = "Customer name - " + customerName;
         cusDetlOrd.appendChild(custNameDiv);
         const custIdDiv = document.createElement("div");
-        custIdDiv.innerHTML = "Customer ID - " + custID;
+        custIdDiv.innerHTML = "Customer ID - " + id;
         cusDetlOrd.appendChild(custIdDiv);
     }
 });
@@ -76,7 +79,7 @@ submitButton.addEventListener('click', e => {
         alert("empty order..u not hungry or wot!!")
     }
     else {
-        socket.emit('serverOrder', data = { "text": text, "customerName": customerName, "custID": custID });
+        socket.emit('serverOrder', data = { "text": text, "customerName": customerName, "custID": id });
         orderLocal();
     }
 
@@ -93,9 +96,7 @@ function outputOrder(message) {
         recievePage.appendChild(newRecList);
     }
     recieveList = document.querySelector(".recieveList");
-    console.log(document.querySelector(`.${message.customerName[0]}${message.custID}`))
     if (document.querySelector(`.${message.customerName[0]}${message.custID}`) == null){
-        console.log(recieveList)
         const custNameOrdRec = document.createElement("div")
         custNameOrdRec.classList.add("custNameOrdRec")
         custNameOrdRec.classList.add(`${message.customerName[0]}${message.custID}`)
@@ -168,25 +169,28 @@ function orderLocal() {
 
 document.addEventListener('click', (e) => {
     if (e.target.classList == "ordAccept" || e.target.classList == "ordDecline") {
-        console.log(e.target.classList)
         e.preventDefault();
         var target = e.target;
         var parent = target.parentNode;
         var superparent = parent.parentNode
         var superparentplus = superparent.parentNode
         var index = [].indexOf.call(superparentplus.children, superparent);
+        idCust = superparentplus.classList[1].slice(1)
+        console.log(idCust)
         $(parent).empty()
 
         if (e.target.classList == "ordAccept"){        
-            socket.emit('serverAccept', index);
+            socket.emit('serverAccept', {"index": index, "idCust": idCust});
             //Add ready button in recieve
-            const ordReady = document.createElement("button")
-            ordReady.classList.add("ordReadyBtn")
-            ordReady.innerHTML = "Order Ready"
-            parent.appendChild(ordReady)
+            const ordRecWaiting = document.createElement("div")
+            ordRecWaiting.classList.add("recieveItemConf")
+            ordRecWaiting.innerHTML = "waiting"
+            parent.appendChild(ordRecWaiting)
+            
         }
         else{
-            socket.emit('serverDecline', index);
+            socket.emit('serverDecline', {"index": index, "idCust": idCust});
+            //Add ready button in recieve);
             const ordDeclined = document.createElement("div")
             ordDeclined.classList.add("ordDeclined")
             ordDeclined.innerHTML = "Order Declined"
@@ -195,16 +199,17 @@ document.addEventListener('click', (e) => {
     }
 })
 
-function outputAccept(accept) {
-    mainOrdList.childNodes[accept].lastChild.innerHTML = "Status - <span>Order confirmed... Cooking</span>";
-    mainOrdList.childNodes[accept].lastChild.querySelector('span').style.background = "orange";
-    mainOrdList.childNodes[accept].lastChild.querySelector('span').style.color = "black";
+function outputAccept(data) {
+    mainOrdList.childNodes[data.index].lastChild.innerHTML = "Status - <span>Available</span>";
+    mainOrdList.childNodes[data.index].lastChild.querySelector('span').style.background = "orange";
+    mainOrdList.childNodes[data.index].lastChild.querySelector('span').style.color = "black";
 }
 
-function outputdecline(decline) {
-    mainOrdList.childNodes[decline].lastChild.innerHTML = "Item not available";
-    mainOrdList.childNodes[decline].lastChild.style.background = "red";
-    mainOrdList.childNodes[decline].lastChild.style.color = "white";
+function outputdecline(data) {
+    mainOrdList.childNodes[data.index].lastChild.innerHTML = "Status - <span>Item not available</span>";
+    mainOrdList.childNodes[data.index].lastChild.querySelector('span').style.backgroundColor = "red";
+    mainOrdList.childNodes[data.index].lastChild.querySelector('span').style.color = "white";
+
 }
 document.addEventListener('click', (e) => {
     if (e.target.classList == "ordReadyBtn") {
@@ -222,7 +227,3 @@ function outputReady(ready) {
     mainOrdList.childNodes[ready].lastChild.innerHTML = "Status - <span>Order ready... Please Collect</span>";
     mainOrdList.childNodes[ready].lastChild.querySelector('span').style.background = "green";
 }
-
-// //for testing purpose
-// customerName = "kek"
-// custID = "1234"

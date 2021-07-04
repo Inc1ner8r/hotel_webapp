@@ -105,6 +105,7 @@ body {
   padding: 20px 20px;
 
   .orderHead {
+    width: 100%;
     background-color: $bg-primary;
     padding: 20px;
     box-shadow: 5px 7px 10px #040405 inset, -5px -8px 10px #2a2b33 inset;
@@ -160,6 +161,7 @@ body {
     }
   }
   .yourOrders {
+    width: 100%;
     .yourOrdersHead {
       display: grid;
       place-items: center;
@@ -202,6 +204,7 @@ body {
     }
   }
   .cusDetlOrd {
+    width: 100%;
     background-color: $bg-primary;
     padding: 20px;
     box-shadow: 5px 7px 5px #040405 inset, -5px -8px 5px #2a2b33 inset;
@@ -218,6 +221,15 @@ body {
       font-size: 1.2rem;
     }
   }
+  .orderConfButton {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: $blue-primary;
+    color: black;
+    border-radius: 15px;
+    display: none;
+  }
 }
 //
 ////----------------recieve page---------------------------------
@@ -228,6 +240,7 @@ body {
   height: 100vh;
   padding: 20px;
   color: white;
+  justify-content: center;
 
   .recieveHead {
     display: grid;
@@ -459,14 +472,3 @@ body {
     }
   }
 }
-
-// //for testing purpose
-// .nav {
-//   display: none;
-// }
-// .order {
-//   display: block;
-// }
-// .recieve {
-//   display: block;
-// }

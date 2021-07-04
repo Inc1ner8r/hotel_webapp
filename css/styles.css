@@ -116,6 +116,7 @@ body {
 }
 
 .order .orderHead {
+  width: 100%;
   background-color: #131419;
   padding: 20px;
   -webkit-box-shadow: 5px 7px 10px #040405 inset, -5px -8px 10px #2a2b33 inset;
@@ -182,6 +183,10 @@ body {
           box-shadow: 4px 6px 3px #000000, -3px -4px 5px #34363d;
 }
 
+.order .yourOrders {
+  width: 100%;
+}
+
 .order .yourOrders .yourOrdersHead {
   display: -ms-grid;
   display: grid;
@@ -227,6 +232,7 @@ body {
 }
 
 .order .cusDetlOrd {
+  width: 100%;
   background-color: #131419;
   padding: 20px;
   -webkit-box-shadow: 5px 7px 5px #040405 inset, -5px -8px 5px #2a2b33 inset;
@@ -251,11 +257,24 @@ body {
   font-size: 1.2rem;
 }
 
+.order .orderConfButton {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #18a5d4;
+  color: black;
+  border-radius: 15px;
+  display: none;
+}
+
 .recieve {
   display: none;
   height: 100vh;
   padding: 20px;
   color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .recieve .recieveHead {

@@ -12,26 +12,24 @@ app.use(express.static(path.join(__dirname, './')));
 
 //when client connects
 io.on('connection', socket => {
-    console.log('new connection')
+    io.to(socket.id).emit('socketid', socket.id)
 
     //broadcast on connect
 
     //get order text
-    socket.on('serverOrder', (data) => {
+    socket.on('serverOrder', data => {
         io.emit('message', data)
     })
 
-    socket.on('serverAccept', (index) => {
-        io.emit('accept', index)
+    socket.on('serverAccept', data => {
+        io.to(data.idCust).emit('accept', data)
     })
-    socket.on('serverDecline', (index) => {
-        io.emit('decline', index)
+    socket.on('serverDecline', data => {
+        io.to(data.idCust).emit('decline', data)
     })
-    socket.on('serverReady', (index) => {
+    socket.on('serverReady', index => {
         io.emit('ready', index)
     })
-
-
 });
 
 const PORT = process.env.PORT || 3000;
