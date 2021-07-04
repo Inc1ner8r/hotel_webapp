@@ -180,10 +180,10 @@ document.addEventListener('click', (e) => {
         if (e.target.classList == "ordAccept"){        
             socket.emit('serverAccept', index);
             //Add ready button in recieve
-            const ordReady = document.createElement("button")
-            ordReady.classList.add("ordReadyBtn")
-            ordReady.innerHTML = "Order Ready"
-            parent.appendChild(ordReady)
+            const ordRecWaiting = document.createElement("div")
+            ordRecWaiting.classList.add("recieveItemConf")
+            ordRecWaiting.innerHTML = "waiting"
+            parent.appendChild(ordRecWaiting)
         }
         else{
             socket.emit('serverDecline', index);
@@ -205,6 +205,7 @@ function outputdecline(decline) {
     mainOrdList.childNodes[decline].lastChild.innerHTML = "Status - <span>Item not available</span>";
     mainOrdList.childNodes[decline].lastChild.querySelector('span').style.backgroundColor = "red";
     mainOrdList.childNodes[decline].lastChild.querySelector('span').style.color = "white";
+
 }
 document.addEventListener('click', (e) => {
     if (e.target.classList == "ordReadyBtn") {
@@ -223,6 +224,6 @@ function outputReady(ready) {
     mainOrdList.childNodes[ready].lastChild.querySelector('span').style.background = "green";
 }
 
-//for testing purpose
-customerName = "kek"
-custID = "1234"
+// //for testing purpose
+// customerName = "kek"
+// custID = "1234"
