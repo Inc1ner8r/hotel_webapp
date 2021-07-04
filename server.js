@@ -5,8 +5,12 @@ const socketio = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
-
+const io = socketio(server,{
+    cors: {
+        origin: "http://localhost:4200",
+        methods: ["GET", "POST"]
+      }
+});
 //set current folder 
 app.use(express.static(path.join(__dirname, './')));
 
