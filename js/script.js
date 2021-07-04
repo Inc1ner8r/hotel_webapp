@@ -196,15 +196,15 @@ document.addEventListener('click', (e) => {
 })
 
 function outputAccept(accept) {
-    mainOrdList.childNodes[accept].lastChild.innerHTML = "Status - <span>Order confirmed... Cooking</span>";
+    mainOrdList.childNodes[accept].lastChild.innerHTML = "Status - <span>Available</span>";
     mainOrdList.childNodes[accept].lastChild.querySelector('span').style.background = "orange";
     mainOrdList.childNodes[accept].lastChild.querySelector('span').style.color = "black";
 }
 
 function outputdecline(decline) {
-    mainOrdList.childNodes[decline].lastChild.innerHTML = "Item not available";
-    mainOrdList.childNodes[decline].lastChild.style.background = "red";
-    mainOrdList.childNodes[decline].lastChild.style.color = "white";
+    mainOrdList.childNodes[decline].lastChild.innerHTML = "Status - <span>Item not available</span>";
+    mainOrdList.childNodes[decline].lastChild.querySelector('span').style.backgroundColor = "red";
+    mainOrdList.childNodes[decline].lastChild.querySelector('span').style.color = "white";
 }
 document.addEventListener('click', (e) => {
     if (e.target.classList == "ordReadyBtn") {
@@ -223,6 +223,6 @@ function outputReady(ready) {
     mainOrdList.childNodes[ready].lastChild.querySelector('span').style.background = "green";
 }
 
-// //for testing purpose
-// customerName = "kek"
-// custID = "1234"
+//for testing purpose
+customerName = "kek"
+custID = "1234"

@@ -509,4 +509,16 @@ body {
   -webkit-box-shadow: 5px 5px 10px #08080a inset, -6px -8px 10px #24262e inset;
           box-shadow: 5px 5px 10px #08080a inset, -6px -8px 10px #24262e inset;
 }
+
+.nav {
+  display: none;
+}
+
+.order {
+  display: block;
+}
+
+.recieve {
+  display: block;
+}
 /*# sourceMappingURL=styles.css.map */
