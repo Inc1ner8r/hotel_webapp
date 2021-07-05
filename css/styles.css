@@ -110,9 +110,16 @@ body {
 
 .order {
   display: none;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #131419;
   padding: 20px 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .order .orderHead {
@@ -209,6 +216,15 @@ body {
   border: 2px solid white;
   border-radius: 10px;
   color: white;
+  position: relative;
+}
+
+.order .yourOrders .ordered .mainOrdDiv .delBtn {
+  background-color: red;
+  color: black;
+  position: absolute;
+  bottom: 25px;
+  right: 5px;
 }
 
 .order .yourOrders .ordered .mainOrdDiv .mainOrdItem {

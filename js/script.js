@@ -30,6 +30,7 @@ const custFormButton = document.querySelector(".custFormButton")
 const custname = document.querySelector("#custName")
 const cusDetlOrd = document.querySelector(".cusDetlOrd")
 const yourOrders = document.querySelector(".yourOrders")
+const orderConfButton = document.querySelector(".orderConfButton")
 
 //first page
 
@@ -59,7 +60,7 @@ custFormButton.addEventListener('click', e => {
     } else {
         e.preventDefault();
         custLoginPage.style.display = "none";
-        orderPage.style.display = "block";
+        orderPage.style.display = "flex";
 
         custname.value = ""
         const custNameDiv = document.createElement("div");
@@ -200,16 +201,22 @@ document.addEventListener('click', (e) => {
 })
 
 function outputAccept(data) {
-    mainOrdList.childNodes[data.index].lastChild.innerHTML = "Status - <span>Available</span>";
-    mainOrdList.childNodes[data.index].lastChild.querySelector('span').style.background = "orange";
-    mainOrdList.childNodes[data.index].lastChild.querySelector('span').style.color = "black";
+    var tempOrderDiv = mainOrdList.childNodes[data.index]
+    tempOrderDiv.lastChild.innerHTML = "Status - <span>Available</span>";
+    tempOrderDiv.lastChild.querySelector('span').style.background = "orange";
+    tempOrderDiv.lastChild.querySelector('span').style.color = "black";
+    delBtn(tempOrderDiv)
+    if (orderConfButton.style.display = "none"){
+        orderConfButton.style.display = "block"
+    }
 }
 
 function outputdecline(data) {
-    mainOrdList.childNodes[data.index].lastChild.innerHTML = "Status - <span>Item not available</span>";
-    mainOrdList.childNodes[data.index].lastChild.querySelector('span').style.backgroundColor = "red";
-    mainOrdList.childNodes[data.index].lastChild.querySelector('span').style.color = "white";
-
+    var tempOrderDiv = mainOrdList.childNodes[data.index]
+    tempOrderDiv.lastChild.innerHTML = "Status - <span>Item not available</span>";
+    tempOrderDiv.lastChild.querySelector('span').style.backgroundColor = "red";
+    tempOrderDiv.lastChild.querySelector('span').style.color = "white";
+    delBtn(tempOrderDiv)
 }
 document.addEventListener('click', (e) => {
     if (e.target.classList == "ordReadyBtn") {
@@ -227,3 +234,9 @@ function outputReady(ready) {
     mainOrdList.childNodes[ready].lastChild.innerHTML = "Status - <span>Order ready... Please Collect</span>";
     mainOrdList.childNodes[ready].lastChild.querySelector('span').style.background = "green";
 }
+ function delBtn(orderDiv){
+    var delBtn = document.createElement("div")
+    delBtn.classList.add("delBtn")
+    delBtn.innerHTML = "Delete"
+    orderDiv.appendChild(delBtn)
+ }
