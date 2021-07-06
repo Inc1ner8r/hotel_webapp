@@ -33,6 +33,9 @@ io.on('connection', socket => {
     socket.on('delItemCust', data => {
         io.emit('del', data)
     })
+    socket.on('placeOrderFinal', data => {
+        io.emit('placeIndex', data)
+    })
 });
 
 const PORT = process.env.PORT || 3000;

@@ -19,6 +19,9 @@ socket.on('socketid', socketid => {
 socket.on('del', data =>{
     delItemRec(data)
 })
+socket.on('placeIndex', data =>{
+    ordPlacedFinal(data)
+})
 
 const orderPage = document.getElementById("orderpage");
 const recievePage = document.getElementById("recievepage");
@@ -275,5 +278,20 @@ function ordFinal(){
         socket.emit('placeOrderFinal', {"divID": customerName[0]+id })
     }else{
         alert("delete orders which are not available \nor wait for all orders to get confirmation")
+    }
+}
+
+function ordPlacedFinal(data){
+    
+    const ordDiv = document.querySelector(`.${data.divID}`)
+    const btnDivs = ordDiv.querySelectorAll('.recButtonDiv')
+    $(btnDivs).empty()
+    var pickupBtn = document.createElement("button")
+    pickupBtn.classList.add("pickupBtn")
+    pickupBtn.innerHTML = "ready"
+    //btnDivs[0].appendChild()
+    for (i=0; i < btnDivs.length; i++){
+        console.log(btnDivs[i])
+        btnDivs[i].appendChild(pickupBtn)
     }
 }
