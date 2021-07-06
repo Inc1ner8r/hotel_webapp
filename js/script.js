@@ -5,7 +5,6 @@ socket.on('message', message => {
     outputOrder(message);
 });
 socket.on('accept', data => {
-    console.log("kek")
     outputAccept(data);
 });
 socket.on('decline', decline => {
@@ -16,6 +15,9 @@ socket.on('ready', ready => {
 });
 socket.on('socketid', socketid => {
     id = socketid
+})
+socket.on('del', data =>{
+    delItemRec(data)
 })
 
 const orderPage = document.getElementById("orderpage");
@@ -31,6 +33,7 @@ const custname = document.querySelector("#custName")
 const cusDetlOrd = document.querySelector(".cusDetlOrd")
 const yourOrders = document.querySelector(".yourOrders")
 const orderConfButton = document.querySelector(".orderConfButton")
+const customerName = "test"
 
 //first page
 
@@ -177,7 +180,6 @@ document.addEventListener('click', (e) => {
         var superparentplus = superparent.parentNode
         var index = [].indexOf.call(superparentplus.children, superparent);
         idCust = superparentplus.classList[1].slice(1)
-        console.log(idCust)
         $(parent).empty()
 
         if (e.target.classList == "ordAccept"){        
@@ -238,5 +240,25 @@ function outputReady(ready) {
     var delBtn = document.createElement("div")
     delBtn.classList.add("delBtn")
     delBtn.innerHTML = "Delete"
+    delBtn.onclick = function(e){
+        DelBtnFn(e);
+    }
     orderDiv.appendChild(delBtn)
  }
+
+
+function DelBtnFn(e){ 
+    orditemDivv = e.target.parentNode
+    ordListt = e.target.parentNode.parentNode
+    index = [].indexOf.call(ordListt.children, orditemDivv)
+    orditemDivv.remove()
+    socket.emit('delItemCust', {"index": index, "divID": customerName[0]+id })
+    if (document.querySelector(".mainOrdDiv") == null){
+        document.querySelector(".ordered").remove()
+        document.querySelector(".orderConfButton").remove()
+    }
+}
+function delItemRec(data){
+    document.querySelector(`.${data.divID}`).childNodes[data.index + 1].remove()
+}
+

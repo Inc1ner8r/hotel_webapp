@@ -30,6 +30,9 @@ io.on('connection', socket => {
     socket.on('serverReady', index => {
         io.emit('ready', index)
     })
+    socket.on('delItemCust', data => {
+        io.emit('del', data)
+    })
 });
 
 const PORT = process.env.PORT || 3000;
