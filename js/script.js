@@ -286,12 +286,13 @@ function ordPlacedFinal(data){
     const ordDiv = document.querySelector(`.${data.divID}`)
     const btnDivs = ordDiv.querySelectorAll('.recButtonDiv')
     $(btnDivs).empty()
-    var pickupBtn = document.createElement("button")
-    pickupBtn.classList.add("pickupBtn")
-    pickupBtn.innerHTML = "ready"
-    //btnDivs[0].appendChild()
-    for (i=0; i < btnDivs.length; i++){
-        console.log(btnDivs[i])
-        btnDivs[i].appendChild(pickupBtn)
+    function btnCreate(elem){
+        var pickupBtn = document.createElement("button")
+        pickupBtn.classList.add("pickupBtn")
+        pickupBtn.innerHTML = "ready"
+        elem.appendChild(pickupBtn)
     }
+    btnDivs.forEach( i => {
+        btnCreate(i)
+    })
 }
