@@ -262,3 +262,18 @@ function delItemRec(data){
     document.querySelector(`.${data.divID}`).childNodes[data.index + 1].remove()
 }
 
+function ordFinal(){
+    ordStatus = document.querySelectorAll("span")
+    isAvail = true;
+    for (i=0; i < ordStatus.length; i++){
+        if (ordStatus[i].innerHTML !== "Available"){
+            isAvail = false;
+            break;
+        }
+    }
+    if (isAvail == true){
+        socket.emit('placeOrderFinal', {"divID": customerName[0]+id })
+    }else{
+        alert("delete orders which are not available \nor wait for all orders to get confirmation")
+    }
+}
