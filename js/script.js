@@ -22,6 +22,10 @@ socket.on('del', data =>{
 socket.on('placeIndex', data =>{
     ordPlacedFinal(data)
 })
+socket.on('readyIndexFinal', data =>{
+    readyOrdCollect(data)
+})
+
 
 const orderPage = document.getElementById("orderpage");
 const recievePage = document.getElementById("recievepage");
@@ -36,7 +40,6 @@ const custname = document.querySelector("#custName")
 const cusDetlOrd = document.querySelector(".cusDetlOrd")
 const yourOrders = document.querySelector(".yourOrders")
 const orderConfButton = document.querySelector(".orderConfButton")
-const customerName = "test"
 
 //first page
 
@@ -239,7 +242,7 @@ function outputReady(ready) {
     mainOrdList.childNodes[ready].lastChild.innerHTML = "Status - <span>Order ready... Please Collect</span>";
     mainOrdList.childNodes[ready].lastChild.querySelector('span').style.background = "green";
 }
- function delBtn(orderDiv){
+function delBtn(orderDiv){
     var delBtn = document.createElement("div")
     delBtn.classList.add("delBtn")
     delBtn.innerHTML = "Delete"
@@ -247,12 +250,11 @@ function outputReady(ready) {
         DelBtnFn(e);
     }
     orderDiv.appendChild(delBtn)
- }
-
+}
 
 function DelBtnFn(e){ 
-    orditemDivv = e.target.parentNode
-    ordListt = e.target.parentNode.parentNode
+    const orditemDivv = e.target.parentNode
+    const ordListt = e.target.parentNode.parentNode
     index = [].indexOf.call(ordListt.children, orditemDivv)
     orditemDivv.remove()
     socket.emit('delItemCust', {"index": index, "divID": customerName[0]+id })
@@ -275,6 +277,12 @@ function ordFinal(){
         }
     }
     if (isAvail == true){
+        let delBtnTemp = document.querySelectorAll(".delBtn")
+        let availTemp = document.querySelectorAll(".ordStatus")
+        for (i=0; i < delBtnTemp.length ; i++){
+            delBtnTemp[i].remove();
+            availTemp[i].innerHTML = "Status - <span>Cooking..</span>"
+        }
         socket.emit('placeOrderFinal', {"divID": customerName[0]+id })
     }else{
         alert("delete orders which are not available \nor wait for all orders to get confirmation")
@@ -287,12 +295,31 @@ function ordPlacedFinal(data){
     const btnDivs = ordDiv.querySelectorAll('.recButtonDiv')
     $(btnDivs).empty()
     function btnCreate(elem){
-        var pickupBtn = document.createElement("button")
+        let pickupBtn = document.createElement("button")
         pickupBtn.classList.add("pickupBtn")
         pickupBtn.innerHTML = "ready"
+        pickupBtn.onclick = function(e){
+            ordReadyfinal(e);
+        }
         elem.appendChild(pickupBtn)
     }
     btnDivs.forEach( i => {
         btnCreate(i)
     })
+}
+function ordReadyfinal(e){
+    var target = e.target;
+    var parent = target.parentNode;
+    var superparent = parent.parentNode
+    var superparentplus = superparent.parentNode
+    var index = [].indexOf.call(superparentplus.children, superparent);
+    idCust = superparentplus.classList[1].slice(1)
+    $(parent).empty()
+    socket.emit('orderReadyFinal', {"index": index, "idCust": idCust});
+}
+
+function readyOrdCollect(data){
+    let mainOrdList = document.querySelectorAll(".mainOrdDiv")
+    mainOrdList[data.index].lastChild.innerHTML = "Status - <span>Order ready... Please Collect</span>";
+    mainOrdList[data.index].lastChild.querySelector('span').style.background = "green";
 }

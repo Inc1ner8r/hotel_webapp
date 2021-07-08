@@ -36,6 +36,10 @@ io.on('connection', socket => {
     socket.on('placeOrderFinal', data => {
         io.emit('placeIndex', data)
     })
+    socket.on('orderReadyFinal', data => {
+        io.to(data.idCust).emit('readyIndexFinal', data)
+    })
+
 });
 
 const PORT = process.env.PORT || 3000;
