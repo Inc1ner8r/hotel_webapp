@@ -110,7 +110,7 @@ function outputOrder(message) {
         const custNameOrdRec = document.createElement("div")
         custNameOrdRec.classList.add("custNameOrdRec")
         custNameOrdRec.classList.add(`${message.customerName[0]}${message.custID}`)
-        custNameOrdRec.innerHTML = `Customer name - ${message.customerName}`
+        custNameOrdRec.innerHTML = `Customer name -<span> ${message.customerName} </span>`
         recieveList.appendChild(custNameOrdRec)
     }
 
@@ -209,7 +209,9 @@ document.addEventListener('click', (e) => {
 })
 
 function outputAccept(data) {
-    var tempOrderDiv = mainOrdList.childNodes[data.index]
+    var tempOrderDiv = mainOrdList.childNodes[data.index - 1]
+    console.log(data.index)
+    console.log(tempOrderDiv)
     tempOrderDiv.lastChild.innerHTML = "Status - <span>Available</span>";
     tempOrderDiv.lastChild.querySelector('span').style.background = "orange";
     tempOrderDiv.lastChild.querySelector('span').style.color = "black";
@@ -268,7 +270,8 @@ function delItemRec(data){
 }
 
 function ordFinal(){
-    ordStatus = document.querySelectorAll("span")
+    ordStatus = orderPage.querySelectorAll("span")
+    console.log(ordStatus)
     isAvail = true;
     for (i=0; i < ordStatus.length; i++){
         if (ordStatus[i].innerHTML !== "Available"){
@@ -312,8 +315,9 @@ function ordReadyfinal(e){
     var parent = target.parentNode;
     var superparent = parent.parentNode
     var superparentplus = superparent.parentNode
-    var index = [].indexOf.call(superparentplus.children, superparent);
+    var index = [].indexOf.call(superparentplus.children, superparent) - 1;
     idCust = superparentplus.classList[1].slice(1)
+    console.log(index)
     $(parent).empty()
     socket.emit('orderReadyFinal', {"index": index, "idCust": idCust});
 }

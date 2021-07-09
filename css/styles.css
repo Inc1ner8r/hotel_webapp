@@ -213,13 +213,14 @@ body {
 .order .yourOrders .ordered .mainOrdDiv {
   margin: 10px;
   padding: 10px;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 10px;
   color: white;
   position: relative;
 }
 
 .order .yourOrders .ordered .mainOrdDiv .delBtn {
+  padding: 4px;
   background-color: red;
   color: black;
   position: absolute;
@@ -297,27 +298,78 @@ body {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-family: "DM Mono", monospace;
   color: #d831ae;
   text-shadow: 0 0 10px #d831ae, 0 0 50px #d831ae;
   height: 9vh;
 }
 
-.recieve .recieveList {
-  border: 1px solid white;
-  padding: 10px;
+.recieve .recieveList .custNameOrdRec {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 20px 15px;
+  font-size: 1.3rem;
+  margin: 1rem 0 2rem 0;
 }
 
-.recieve .recieveList .custNameOrdRec {
-  border: 1px solid red;
+.recieve .recieveList .custNameOrdRec nav {
+  color: #84ceff;
+  font-size: 1.1em;
 }
 
 .recieve .recieveList .OrdRecDiv {
-  margin: 10px;
+  margin-top: 20px;
   padding: 10px;
   border: 2px solid #18a5d4;
   border-radius: 10px;
+  font-size: 1.2rem;
+  -webkit-box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
+          box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4), 10px 10px 30px rgba(16, 32, 34, 0.5);
+}
+
+.recieve .recieveList .OrdRecDiv .ordRecItem {
+  color: #ffbca8;
+  padding: 5px;
+}
+
+.recieve .recieveList .OrdRecDiv .recButtonDiv {
+  padding: 10px 5px;
+  display: flexbox;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.recieve .recieveList .OrdRecDiv .recButtonDiv .ordAccept,
+.recieve .recieveList .OrdRecDiv .recButtonDiv .ordDecline,
+.recieve .recieveList .OrdRecDiv .recButtonDiv .pickupBtn {
+  border-radius: 5px;
+  padding: 4px 6px;
+  margin-right: 1rem;
+  outline: none;
+  border: none;
+}
+
+.recieve .recieveList .OrdRecDiv .recButtonDiv .ordAccept:focus,
+.recieve .recieveList .OrdRecDiv .recButtonDiv .ordDecline:focus,
+.recieve .recieveList .OrdRecDiv .recButtonDiv .pickupBtn:focus {
+  outline: none;
+}
+
+.recieve .recieveList .OrdRecDiv .recButtonDiv .ordAccept {
+  background-color: #9dff9a;
+}
+
+.recieve .recieveList .OrdRecDiv .recButtonDiv .ordDecline {
+  background-color: #ff8585;
+}
+
+.recieve .recieveList .OrdRecDiv .recButtonDiv .pickupBtn {
+  background-color: #9dff9a;
 }
 
 .loginPage {

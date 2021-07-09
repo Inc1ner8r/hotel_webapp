@@ -180,12 +180,13 @@ body {
       .mainOrdDiv {
         margin: 10px;
         padding: 10px;
-        border: 2px solid white;
+        border: 1px solid white;
         border-radius: 10px;
         color: white;
         position: relative;
 
         .delBtn {
+          padding: 4px;
           background-color: red;
           color: black;
           position: absolute;
@@ -256,7 +257,7 @@ body {
   .recieveHead {
     display: grid;
     place-items: center;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-family: "DM Mono", monospace;
     //background-color: $bg-primary;
     color: $pink-primary;
@@ -265,18 +266,62 @@ body {
   }
 
   .recieveList {
-    border: 1px solid white;
-    padding: 10px;
-
     .custNameOrdRec {
-      border: 1px solid red;
+      border: 2px solid white;
+      border-radius: 10px;
+      padding: 20px 15px;
+      font-size: 1.3rem;
+      margin: 1rem 0 2rem 0;
+
+      nav {
+        color: rgb(132, 206, 255);
+        font-size: 1.1em;
+      }
     }
 
     .OrdRecDiv {
-      margin: 10px;
+      margin-top: 20px;
       padding: 10px;
       border: 2px solid $blue-primary;
       border-radius: 10px;
+      font-size: 1.2rem;
+      box-shadow: -2px -2px 20px rgba(24, 165, 212, 0.4),
+        10px 10px 30px rgba(16, 32, 34, 0.5);
+
+      .ordRecItem {
+        color: #ffbca8;
+        padding: 5px;
+      }
+
+      .recButtonDiv {
+        padding: 10px 5px;
+        display: flexbox;
+        justify-content: center;
+        align-items: flex-start;
+
+        .ordAccept,
+        .ordDecline,
+        .pickupBtn {
+          border-radius: 5px;
+          padding: 4px 6px;
+          margin-right: 1rem;
+          outline: none;
+          border: none;
+
+          &:focus {
+            outline: none;
+          }
+        }
+        .ordAccept {
+          background-color: rgb(157, 255, 154);
+        }
+        .ordDecline {
+          background-color: #ff8585;
+        }
+        .pickupBtn {
+          background-color: rgb(157, 255, 154);
+        }
+      }
     }
   }
 }
