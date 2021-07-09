@@ -189,7 +189,7 @@ document.addEventListener('click', (e) => {
         $(parent).empty()
 
         if (e.target.classList == "ordAccept"){        
-            socket.emit('serverAccept', {"index": index, "idCust": idCust});
+            socket.emit('serverAccept', {"index": index - 1, "idCust": idCust});
             //Add ready button in recieve
             const ordRecWaiting = document.createElement("div")
             ordRecWaiting.classList.add("recieveItemConf")
@@ -198,7 +198,7 @@ document.addEventListener('click', (e) => {
             
         }
         else{
-            socket.emit('serverDecline', {"index": index, "idCust": idCust});
+            socket.emit('serverDecline', {"index": index - 1, "idCust": idCust});
             //Add ready button in recieve);
             const ordDeclined = document.createElement("div")
             ordDeclined.classList.add("ordDeclined")
@@ -209,11 +209,9 @@ document.addEventListener('click', (e) => {
 })
 
 function outputAccept(data) {
-    var tempOrderDiv = mainOrdList.childNodes[data.index - 1]
-    console.log(data.index)
-    console.log(tempOrderDiv)
+    var tempOrderDiv = mainOrdList.childNodes[data.index]
     tempOrderDiv.lastChild.innerHTML = "Status - <span>Available</span>";
-    tempOrderDiv.lastChild.querySelector('span').style.background = "orange";
+    tempOrderDiv.lastChild.querySelector('span').style.background = "#50f6ffc4";
     tempOrderDiv.lastChild.querySelector('span').style.color = "black";
     delBtn(tempOrderDiv)
     if (orderConfButton.style.display = "none"){
@@ -224,8 +222,8 @@ function outputAccept(data) {
 function outputdecline(data) {
     var tempOrderDiv = mainOrdList.childNodes[data.index]
     tempOrderDiv.lastChild.innerHTML = "Status - <span>Item not available</span>";
-    tempOrderDiv.lastChild.querySelector('span').style.backgroundColor = "red";
-    tempOrderDiv.lastChild.querySelector('span').style.color = "white";
+    tempOrderDiv.lastChild.querySelector('span').style.backgroundColor = "#ff4444";
+    tempOrderDiv.lastChild.querySelector('span').style.color = "black";
     delBtn(tempOrderDiv)
 }
 document.addEventListener('click', (e) => {
@@ -247,7 +245,7 @@ function outputReady(ready) {
 function delBtn(orderDiv){
     var delBtn = document.createElement("div")
     delBtn.classList.add("delBtn")
-    delBtn.innerHTML = "Delete"
+    delBtn.innerHTML = "<img src='remove.png'>"
     delBtn.onclick = function(e){
         DelBtnFn(e);
     }
@@ -255,8 +253,8 @@ function delBtn(orderDiv){
 }
 
 function DelBtnFn(e){ 
-    const orditemDivv = e.target.parentNode
-    const ordListt = e.target.parentNode.parentNode
+    const orditemDivv = e.target.parentNode.parentNode
+    const ordListt = orditemDivv.parentNode
     index = [].indexOf.call(ordListt.children, orditemDivv)
     orditemDivv.remove()
     socket.emit('delItemCust', {"index": index, "divID": customerName[0]+id })
@@ -271,7 +269,6 @@ function delItemRec(data){
 
 function ordFinal(){
     ordStatus = orderPage.querySelectorAll("span")
-    console.log(ordStatus)
     isAvail = true;
     for (i=0; i < ordStatus.length; i++){
         if (ordStatus[i].innerHTML !== "Available"){
@@ -285,6 +282,8 @@ function ordFinal(){
         for (i=0; i < delBtnTemp.length ; i++){
             delBtnTemp[i].remove();
             availTemp[i].innerHTML = "Status - <span>Cooking..</span>"
+            availTemp[i].querySelector("span").style.backgroundColor = "#f56a1ac4"
+            availTemp[i].querySelector("span").style.color = "black"
         }
         socket.emit('placeOrderFinal', {"divID": customerName[0]+id })
     }else{
@@ -317,13 +316,20 @@ function ordReadyfinal(e){
     var superparentplus = superparent.parentNode
     var index = [].indexOf.call(superparentplus.children, superparent) - 1;
     idCust = superparentplus.classList[1].slice(1)
-    console.log(index)
-    $(parent).empty()
+    parent.remove()
     socket.emit('orderReadyFinal', {"index": index, "idCust": idCust});
 }
 
 function readyOrdCollect(data){
     let mainOrdList = document.querySelectorAll(".mainOrdDiv")
     mainOrdList[data.index].lastChild.innerHTML = "Status - <span>Order ready... Please Collect</span>";
-    mainOrdList[data.index].lastChild.querySelector('span').style.background = "green";
+    mainOrdList[data.index].lastChild.querySelector('span').style.background = "#47ff3dd6";
+    mainOrdList[data.index].lastChild.querySelector('span').style.color = "black";
+    orderConfButton.removeAttribute("onclick")
+    orderConfButton.innerHTML = "Collected"
+    orderConfButton.onclick = function(){
+    console.log("kek")
+    }
 }
+
+// customerName = "test"

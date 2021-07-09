@@ -187,11 +187,14 @@ body {
 
         .delBtn {
           padding: 4px;
-          background-color: red;
+          //background-color: red;
           color: black;
           position: absolute;
-          bottom: 25px;
-          right: 5px;
+          bottom: 20px;
+          right: 10px;
+          img {
+            width: 2.2rem;
+          }
         }
 
         .mainOrdItem {
@@ -208,7 +211,7 @@ body {
 
           span {
             padding: 5px;
-            background-color: #757575b7;
+            background-color: #343434c4;
             border-radius: 5px;
           }
         }
@@ -528,3 +531,13 @@ body {
     }
   }
 }
+
+// .nav {
+//   display: none;
+// }
+// .order {
+//   display: flex;
+// }
+// .recieve {
+//   display: block;
+// }
