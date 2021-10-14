@@ -20,7 +20,7 @@
   "homepage": "https://github.com/incinerator17/hotel_webapp#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "socket.io": "^4.2.0",
+    "socket.io": "^4.3.0",
     "socket.io-client": "^4.2.0"
   },
   "devDependencies": {
