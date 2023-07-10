@@ -1,1 +1,1 @@
-# hotel_webapp
+# hotel_ordering_webapp
